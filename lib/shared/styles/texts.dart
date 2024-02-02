@@ -12,6 +12,12 @@ class TextStyles {
     fontSize: 15.sp,
   );
 
+  static TextStyle font12LightGreyRegular = TextStyle(
+    color: ColorManager.lightGrey,
+    fontSize: 12.sp,
+  );
+
+
   static TextStyle font14GreyLight = TextStyle(
     color: ColorManager.hintOFSearchTextField,
     fontSize: 14.sp,
@@ -58,6 +64,13 @@ class TextStyles {
   static TextStyle font16BlackRegular = TextStyle(
     color: Colors.black,
     fontSize: 16.sp,
+  );
+
+  static TextStyle font16BlackMedium = TextStyle(
+    color: Colors.black,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.medium,
+    height: 1.1
   );
 
   static TextStyle font16BlackBold = TextStyle(

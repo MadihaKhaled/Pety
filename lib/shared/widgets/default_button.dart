@@ -33,7 +33,7 @@ class DefaultButton extends StatelessWidget{
       onTap: onClick,
       child: Ink(
           width: width??195.w,
-          height: height??50.h,
+          height: height??60.h,
           decoration: BoxDecoration(
             color: color??ColorManager.defaultColor,
             borderRadius: BorderRadius.circular(radius??10),

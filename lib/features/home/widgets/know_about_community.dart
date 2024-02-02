@@ -15,7 +15,7 @@ class KnowAboutCommunity extends StatelessWidget{
         elevation: 0,
         color: Colors.white,
         child:Padding(
-          padding: EdgeInsets.all(8.w),
+          padding: EdgeInsets.symmetric(horizontal:8.w,vertical: 8.h),
           child: Row(
             children: [
               SvgPicture.asset('assets/svgs/menu.svg'),
@@ -42,7 +42,7 @@ class KnowAboutCommunity extends StatelessWidget{
                     style: ButtonStyle(
                       padding: MaterialStatePropertyAll<EdgeInsets>(EdgeInsets.symmetric(horizontal: 5.w)),
                       backgroundColor: const MaterialStatePropertyAll<Color>(ColorManager.orange),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r))),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
                     ),
 
                     child: Text('community',style: TextStyles.font14WhiteRegular,)
