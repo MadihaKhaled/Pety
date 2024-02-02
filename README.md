@@ -1,6 +1,6 @@
 # pety
 
-A new Flutter project.
+My graduation Project.
 
 ## Getting Started
 
