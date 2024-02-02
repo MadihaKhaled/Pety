@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:pety/features/login/login_screen.dart';
 import 'package:pety/features/register/register_screen.dart';
+import 'package:pety/features/search_vet/search_for_vet/search_for_vet.dart';
 import 'package:pety/layouts/pety_layout/pety_layout.dart';
 import 'package:pety/shared/routing/routes.dart';
 
@@ -18,7 +19,11 @@ class AppRouter{
         );
       case Routes.petLayout :
         return MaterialPageRoute(
-          builder: (_) => PetLayout(),
+          builder: (_) => const PetLayout(),
+        );
+      case Routes.searchForVet :
+        return MaterialPageRoute(
+          builder: (_) => const SearchForVet(),
         );
       default :
         return MaterialPageRoute(

@@ -19,7 +19,7 @@ class PetyApp extends StatelessWidget {
       child: MaterialApp(
         theme: lightTheme,
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.petLayout,
+        initialRoute: Routes.searchForVet,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

@@ -4,9 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pety/shared/styles/colors.dart';
 import 'package:pety/shared/styles/texts.dart';
 
-class SearchVet extends StatelessWidget{
+class DefaultSearch extends StatelessWidget{
 
-  const SearchVet({super.key});
+  final String? text;
+  const DefaultSearch({
+    super.key,this.text
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,7 @@ class SearchVet extends StatelessWidget{
           Expanded(
               child: TextFormField(
                 decoration: InputDecoration.collapsed(
-                  hintText: 'Book a vet appointment',
+                  hintText: text??'',
                   hintStyle: TextStyles.font14GreyLight,
                   border: InputBorder.none,
                 ),

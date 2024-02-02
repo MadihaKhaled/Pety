@@ -38,7 +38,7 @@ class RegisterScreen extends StatelessWidget{
             body: SingleChildScrollView(
               child: SafeArea(
                 child: Padding(
-                  padding: EdgeInsets.all(16.w),
+                  padding: EdgeInsets.symmetric(horizontal:16.w,vertical: 16.h),
                   child: Form(
                     key: formKey,
                     child: Column(
@@ -123,21 +123,15 @@ class RegisterScreen extends StatelessWidget{
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Expanded(
-                              child: Container(
-                                height: 2.h,
-                                color: ColorManager.dashLineColor,
-                              ),
+                            const Expanded(
+                                child:Divider(thickness: 1,color: ColorManager.dashLineColor,)
                             ),
                              Padding(
                               padding: EdgeInsets.symmetric(horizontal: 2.w),
                               child: Text('Or sign up with',style: TextStyles.font16BlackRegular,),
                             ),
-                            Expanded(
-                              child: Container(
-                                height: 2.h,
-                                color: ColorManager.dashLineColor,
-                              ),
+                            const Expanded(
+                                child:Divider(thickness: 1,color: ColorManager.dashLineColor,)
                             ),
                           ],
                         ),

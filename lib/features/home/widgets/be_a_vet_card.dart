@@ -11,12 +11,12 @@ class BeAVetCard extends StatelessWidget{
   Widget build(BuildContext context) {
     return Card(
       color: ColorManager.defaultColor,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       elevation: 0,
       child: Container(
         padding: EdgeInsets.only(
           left: 8.w,
-          top: 8.w,
+          top: 8.h,
         ),
         width: double.infinity,
         child: Stack(
@@ -38,7 +38,7 @@ class BeAVetCard extends StatelessWidget{
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       padding: MaterialStatePropertyAll<EdgeInsets>(EdgeInsets.symmetric(horizontal: 5.w)),
                       backgroundColor: const MaterialStatePropertyAll<Color>(ColorManager.orange),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r))),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
                     ),
                     child: Text('Learn more',style: TextStyles.font10WhiteRegular,),
                   ),
