@@ -1,6 +1,5 @@
 # pety
 
-My graduation Project.
 
 ## Getting Started
 
