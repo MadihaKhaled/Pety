@@ -26,7 +26,7 @@ class PetLayoutCubit extends Cubit<PetLayoutStates>{
 
   List<BottomNavigationBarItem> bottomItems = [
     BottomNavigationBarItem(
-      icon: SvgPicture.asset('assets/svgs/tst.svg',color: ColorManager.defaultColor,),
+      icon: SvgPicture.asset('assets/svgs/tst.svg',width: 30.w,height: 30.h,color: ColorManager.defaultColor,),
       label: 'Home'
     ),
     BottomNavigationBarItem(
