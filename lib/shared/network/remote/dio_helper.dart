@@ -1,72 +1,32 @@
 
 import 'package:dio/dio.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioHelper{
-  static late Dio dio;
 
-  static void init(){
-    dio = Dio(
-        BaseOptions(
-          baseUrl: 'https://student.valuxapps.com/api/',
-          receiveDataWhenStatusError: true,
-        )
-    );
+  DioHelper._();
+
+  static Dio? dio;
+
+  static Dio getDio() {
+    Duration timeOut = const Duration(seconds: 30);
+    if(dio==null){
+      dio = Dio();
+        dio!
+          ..options.connectTimeout = timeOut
+          ..options.receiveTimeout = timeOut;
+      addDioInterceptor();
+    }
+    return dio!;
   }
 
-  static Future<Response> getData({
-    required String path,
-    Map<String,dynamic>? query,
-    String? token,
-  }) async{
-
-    dio.options.headers = {
-      'Authorization': token,
-      'Content-Type':'application/json'
-    };
-
-    return await dio.get(
-        path,
-        queryParameters: query
-    );
-  }
-
-  static Future<Response> postData({
-    required String path,
-    required Map<String,dynamic> data,
-    Map<String,dynamic>? query,
-    String? token,
-    String lang = 'en'
-  }) async{
-
-    dio.options.headers = {
-      'lang': lang,
-      'Authorization': token,
-      'Content-Type':'application/json'
-    };
-    return await dio.post(
-      path,
-      data: data,
-      queryParameters: query,
-    );
-  }
-
-  static Future<Response> putData({
-    required String path,
-    required Map<String,dynamic> data,
-    Map<String,dynamic>? query,
-    String? token,
-    String lang = 'en'
-  }) async{
-
-    dio.options.headers = {
-      'lang': lang,
-      'Authorization': token,
-      'Content-Type':'application/json'
-    };
-    return await dio.put(
-      path,
-      data: data,
-      queryParameters: query,
+  static void addDioInterceptor(){
+    dio?.interceptors.add(
+      PrettyDioLogger(
+        requestBody: true,
+        requestHeader: true,
+        responseHeader: true,
+      )
     );
   }
 

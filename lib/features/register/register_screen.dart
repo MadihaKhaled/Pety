@@ -7,6 +7,7 @@ import 'package:pety/features/register/cubit/register_states.dart';
 import 'package:pety/shared/widgets/button_image.dart';
 import 'package:pety/shared/widgets/default_button.dart';
 import 'package:pety/shared/widgets/default_text_field.dart';
+import 'package:pety/shared/widgets/password_text_field.dart';
 import 'package:pety/shared/widgets/text_title.dart';
 import 'package:pety/shared/extensions.dart';
 import 'package:pety/shared/routing/routes.dart';
@@ -56,6 +57,7 @@ class RegisterScreen extends StatelessWidget{
                               if(value==null||value.isEmpty){
                                 return 'Please enter your name';
                               }
+                              return null;
                             }
                         ),
                         SizedBox(height: 20.h,),
@@ -68,45 +70,30 @@ class RegisterScreen extends StatelessWidget{
                               if(value==null||value.isEmpty){
                                 return 'Please enter your email';
                               }
+                              return null;
                             }
                         ),
                         SizedBox(height: 20.h,),
-                        DefaultTextField(
-                          context: context,
-                          controller: passwordController,
-                          keyboardType: TextInputType.visiblePassword,
+                        PasswordTextField(
                           label: 'Password',
-                          isObscure: cubit.isObscure,
-                          suffix: cubit.isObscure?Icons.visibility:Icons.visibility_off,
-                          suffixPressed: (){
-                            cubit.changePasswordVisibility(true);
-                          },
-                          validate: (value){
+                          controller: passwordController,
+                          validate: (value) {
                             if(value==null||value.isEmpty){
                               return 'Please enter your password';
                             }
+                            return null;
                           },
-                          focus: cubit.checkFocusForPassword1,
-                          suffixColor: cubit.isFocus1
                         ),
                         SizedBox(height: 20.h,),
-                        DefaultTextField(
-                          context: context,
-                          controller: confPasswordController,
-                          keyboardType: TextInputType.visiblePassword,
+                        PasswordTextField(
                           label: 'Confirm password',
-                          isObscure: cubit.isObscureConf,
-                          suffix: cubit.isObscureConf?Icons.visibility:Icons.visibility_off,
-                          suffixPressed: (){
-                            cubit.changePasswordVisibility(false);
-                          },
-                          validate: (value){
+                          controller: confPasswordController,
+                          validate: (value) {
                             if(value==null||value.isEmpty){
                               return 'Please confirm your password';
                             }
+                            return null;
                           },
-                          focus: cubit.checkFocusForPassword2,
-                          suffixColor: cubit.isFocus2
                         ),
                         SizedBox(height: 40.h,),
                         DefaultButton(

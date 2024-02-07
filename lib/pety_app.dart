@@ -15,13 +15,15 @@ class PetyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(360,800),
       minTextAdapt: true,
-      useInheritedMediaQuery: true,
-      child: MaterialApp(
-        theme: lightTheme,
-        debugShowCheckedModeBanner: false,
-        initialRoute: Routes.searchForVet,
-        onGenerateRoute: appRouter.generateRoute,
-      ),
+      //useInheritedMediaQuery: true,
+      builder: (_,child) {
+        return MaterialApp(
+          theme: lightTheme,
+          debugShowCheckedModeBanner: false,
+          initialRoute: Routes.loginScreen,
+          onGenerateRoute: appRouter.generateRoute,
+        );
+      }
     );
   }
 }
