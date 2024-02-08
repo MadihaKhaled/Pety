@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pety/features/login/cubit/login_cubit.dart';
 import 'package:pety/features/login/login_screen.dart';
+import 'package:pety/features/register/cubit/register_cubit.dart';
 import 'package:pety/features/register/register_screen.dart';
 import 'package:pety/features/search_vet/search_for_vet/search_for_vet.dart';
 import 'package:pety/layouts/pety_layout/pety_layout.dart';
@@ -14,14 +15,18 @@ class AppRouter {
       case Routes.loginScreen :
         return MaterialPageRoute(
           builder: (_) =>
-            BlocProvider(
-              create: (context) => getIt<LoginCubit>(),
-              child: LoginScreen(),
-            ),
+              BlocProvider(
+                create: (context) => getIt<LoginCubit>(),
+                child: LoginScreen(),
+              ),
         );
       case Routes.registerScreen :
         return MaterialPageRoute(
-          builder: (_) => RegisterScreen(),
+          builder: (_) =>
+              BlocProvider(
+                create: (context) => getIt<RegisterCubit>(),
+                child: RegisterScreen(),
+              ),
         );
       case Routes.petLayout :
         return MaterialPageRoute(
