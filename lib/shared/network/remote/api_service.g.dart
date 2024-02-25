@@ -77,6 +77,56 @@ class _ApiService implements ApiService {
     return value;
   }
 
+  @override
+  Future<SearchVetsResponse> searchVets({
+    required String role,
+    required int page,
+    required String sort,
+    required int minPrice,
+    required int maxPrice,
+    required String availability,
+    String? petyName,
+    String? offer,
+    String? animals,
+    int? limit,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'role': role,
+      r'page': page,
+      r'sort': sort,
+      r'minPrice': minPrice,
+      r'maxPrice': maxPrice,
+      r'avalability': availability,
+      r'petyName': petyName,
+      r'offer': offer,
+      r'animals': animals,
+      r'limit': limit,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<SearchVetsResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/pety?',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = SearchVetsResponse.fromJson(_result.data!);
+    return value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

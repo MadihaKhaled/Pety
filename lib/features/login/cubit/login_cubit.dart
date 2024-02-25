@@ -2,6 +2,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pety/features/login/cubit/login_states.dart';
 import 'package:pety/features/login/data/models/login_request_body.dart';
+import 'package:pety/features/login/data/models/login_response.dart';
 import 'package:pety/features/login/data/repository/login_repo.dart';
 
 class LoginCubit extends Cubit<LoginStates>{
@@ -20,7 +21,7 @@ class LoginCubit extends Cubit<LoginStates>{
         emit(LoginStates.success(data));
       },
       failure: (error){
-        emit(LoginStates.error(error: error));
+        emit(LoginStates.error(error: error.apiErrorModel.message!));
       }
     );
   }

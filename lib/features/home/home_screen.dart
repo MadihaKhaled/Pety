@@ -6,7 +6,7 @@ import 'package:pety/features/home/widgets/be_a_vet_card.dart';
 import 'package:pety/features/home/widgets/jobs_list.dart';
 import 'package:pety/features/home/widgets/know_about_community.dart';
 import 'package:pety/layouts/pety_layout/cubit/pety_layout_cubit.dart';
-import 'package:pety/layouts/pety_layout/cubit/pety_layout_states.dart';
+import 'package:pety/layouts/pety_layout/cubit/pet_layout_states.dart';
 import 'package:pety/shared/extensions.dart';
 import 'package:pety/shared/routing/routes.dart';
 import 'package:pety/shared/widgets/default_search.dart';
@@ -29,13 +29,13 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal:10.w,vertical: 10.h),
               child: Column(
                 children: [
-                  GestureDetector(
+                  /*GestureDetector(
                     onTap: (){
                       context.pushNamed(Routes.searchForVet);
                     },
                     child: const DefaultSearch(text: 'Book a vet appointment',),
-                  ),
-                  SizedBox(height: 30.h,),
+                  ),*/
+                  //SizedBox(height: 30.h,),
                   JobsList(cubit: cubit),
                   SizedBox(height: 30.h,),
                   const KnowAboutCommunity(),

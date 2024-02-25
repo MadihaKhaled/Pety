@@ -2,12 +2,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pety/features/search_vet/search_for_vet/data/models/search_vets_response.dart';
 import 'package:pety/shared/styles/colors.dart';
 import 'package:pety/shared/styles/texts.dart';
+import 'package:pety/shared/widgets/horizontal_space.dart';
 
 class VetItemWidget extends StatelessWidget{
 
-  const VetItemWidget({super.key});
+  final Data item;
+  const VetItemWidget({
+    super.key,
+    required this.item
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +30,7 @@ class VetItemWidget extends StatelessWidget{
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Zeke Yeager',
+                item.petyName!,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyles.font16BlackMedium,
@@ -31,7 +38,7 @@ class VetItemWidget extends StatelessWidget{
               Row(
                 children: [
                   RatingBarIndicator(
-                    rating: _calculateRating(),
+                    rating: item.averageRate!.toDouble(),
                     itemBuilder: (context,index) => const Icon(
                       Icons.star,
                       color: ColorManager.yellow,
@@ -40,25 +47,33 @@ class VetItemWidget extends StatelessWidget{
                     itemCount: 5,
                     itemSize: 25.r,
                   ),
-                  Text('(41)',style: TextStyles.font12LightGreyRegular),
+                  const HorizontalSpace(width: 3),
+                  Text('${item.averageRate!}',style: TextStyles.font12LightGreyRegular),
                 ],
               ),
               Row(
                 children: [
-                  const Icon(Icons.access_time,size: 18,color: ColorManager.defaultColor,),
+                  const Icon(
+                    Icons.monetization_on_outlined,size: 18,color: ColorManager.defaultColor,
+                  ),
                   SizedBox(width: 5.w,),
                   Text(
-                    'Waiting time: 30 minutes',
+                    'Price ${item.price}',
                     style: TextStyles.font12LightGreyRegular,
                   )
                 ],
               ),
               Row(
                 children: [
-                  const Icon(Icons.person,size: 18,color: ColorManager.defaultColor),
+                  SvgPicture.asset(
+                    'assets/svgs/pet_leg.svg',
+                    color: ColorManager.defaultColor,
+                    height: 18,
+                    width: 18,
+                  ),
                   SizedBox(width: 5.w,),
                   Text(
-                    'cats / dogs / birds',
+                    item.animals==null?'':item.animals!.toString(),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyles.font12LightGreyRegular,
@@ -72,11 +87,5 @@ class VetItemWidget extends StatelessWidget{
     );
   }
 
-  double _calculateRating(){
-    int have = 190;
-    int dif = 41*5-have;
-    if(dif<0)return 5;
-    return 3;
-  }
 
 }

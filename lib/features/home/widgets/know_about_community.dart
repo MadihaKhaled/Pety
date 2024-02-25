@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pety/shared/styles/colors.dart';
 import 'package:pety/shared/styles/texts.dart';
+import 'package:pety/shared/widgets/default_button.dart';
 
 class KnowAboutCommunity extends StatelessWidget{
   const KnowAboutCommunity({super.key});
@@ -35,18 +36,13 @@ class KnowAboutCommunity extends StatelessWidget{
                 ),
               ),
               SizedBox(width: 5.w,),
-              SizedBox(
+              DefaultButton(
                 height: 50.h,
-                child: FilledButton.tonal(
-                    onPressed: (){},
-                    style: ButtonStyle(
-                      padding: MaterialStatePropertyAll<EdgeInsets>(EdgeInsets.symmetric(horizontal: 5.w)),
-                      backgroundColor: const MaterialStatePropertyAll<Color>(ColorManager.orange),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-                    ),
-
-                    child: Text('community',style: TextStyles.font14WhiteRegular,)
-                ),
+                width: 80.w,
+                text: 'community',
+                color: ColorManager.orange,
+                textStyle: TextStyles.font14WhiteRegular,
+                onClick: (){}
               )
             ],
           ),

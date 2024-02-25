@@ -3,6 +3,7 @@ import 'package:pety/features/login/data/models/login_request_body.dart';
 import 'package:pety/features/login/data/models/login_response.dart';
 import 'package:pety/shared/network/remote/api_result.dart';
 import 'package:pety/shared/network/remote/api_service.dart';
+import 'package:pety/shared/network/remote/error_handler.dart';
 
 class LoginRepository {
   final ApiService apiService ;
@@ -14,7 +15,7 @@ class LoginRepository {
       final response = await apiService.login(loginRequestBody);
       return ApiResult.success(response);
     }catch(error){
-      return ApiResult.failure(error.toString());
+      return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
 

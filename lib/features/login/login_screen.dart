@@ -64,7 +64,6 @@ class LoginScreen extends StatelessWidget{
                   ),
                   SizedBox(height: 60.h,),
                   DefaultButton(
-                      context: context,
                       text: 'Sign in',
                       color: ColorManager.defaultColor,
                       onClick: (){
