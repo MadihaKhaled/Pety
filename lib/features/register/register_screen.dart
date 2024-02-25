@@ -31,183 +31,174 @@ class RegisterScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit,RegisterStates>(
-      listener: (BuildContext context, RegisterStates state) {},
-      builder: (BuildContext context, RegisterStates state) {
-
-        RegisterCubit cubit = RegisterCubit.get(context);
-
-        return Scaffold(
-          body: SingleChildScrollView(
-            child: SafeArea(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal:16.w,vertical: 16.h),
-                child: Form(
-                  key: formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal:16.w,vertical: 16.h),
+            child: Form(
+              key: formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: 50.h,),
+                  textTitle(context: context, text: 'Sign up'),
+                  SizedBox(height: 30.h,),
+                  Row(
                     children: [
-                      SizedBox(height: 50.h,),
-                      textTitle(context: context, text: 'Sign up'),
-                      SizedBox(height: 30.h,),
-                      Row(
-                        children: [
-                          Expanded(
-                            child:DefaultTextField(
-                                context: context,
-                                controller: firstNameController,
-                                keyboardType: TextInputType.text,
-                                label: 'First name',
-                                validate: (value){
-                                  if(value==null||value.isEmpty){
-                                    return 'Please enter your first name';
-                                  }
-                                  return null;
-                                }
-                            ),
-                          ),
-                          SizedBox(width: 10.w,),
-                          Expanded(
-                            child:DefaultTextField(
-                                context: context,
-                                controller: lastNameController,
-                                keyboardType: TextInputType.text,
-                                label: 'Last name',
-                                validate: (value){
-                                  if(value==null||value.isEmpty){
-                                    return 'Please enter your last name';
-                                  }
-                                  return null;
-                                }
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20.h,),
-                      DefaultTextField(
-                          context: context,
-                          controller: emailController,
-                          keyboardType: TextInputType.emailAddress,
-                          label: 'Email address',
-                          validate: (value){
-                            if(value==null||value.isEmpty){
-                              return 'Please enter your email';
-                            }
-                            return null;
-                          }
-                      ),
-                      SizedBox(height: 20.h,),
-                      DefaultTextField(
-                          context: context,
-                          controller: phoneController,
-                          keyboardType: TextInputType.phone,
-                          label: 'Phone',
-                          validate: (value){
-                            if(value==null||value.isEmpty){
-                              return 'Please enter your phone number';
-                            }
-                            return null;
-                          }
-                      ),
-                      SizedBox(height: 20.h,),
-                      PasswordTextField(
-                        label: 'Password',
-                        controller: passwordController,
-                        validate: (value) {
-                          if(value==null||value.isEmpty){
-                            return 'Please enter your password';
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(height: 20.h,),
-                      PasswordTextField(
-                        label: 'Confirm password',
-                        controller: confPasswordController,
-                        validate: (value) {
-                          if(value==null||value.isEmpty){
-                            return 'Please confirm your password';
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(height: 40.h,),
-                      DefaultButton(
-                          context: context,
-                          text: 'Sign up',
-                          color: ColorManager.defaultColor,
-                          onClick: (){
-                            if(formKey.currentState!.validate()){
-                              cubit.emitRegisterStates(
-                                RegisterRequestBody(
-                                  firstName: firstNameController.text,
-                                  lastName: lastNameController.text,
-                                  password: passwordController.text,
-                                  passwordConfirm: confPasswordController.text,
-                                  email: emailController.text,
-                                  phone: phoneController.text,
-                                )
-                              );
-                            }
-                          }
-                      ),
-                      SizedBox(height: 40.h,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Expanded(
-                              child:Divider(thickness: 1,color: ColorManager.dashLineColor,)
-                          ),
-                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 2.w),
-                            child: Text('Or sign up with',style: TextStyles.font16BlackRegular,),
-                          ),
-                          const Expanded(
-                              child:Divider(thickness: 1,color: ColorManager.dashLineColor,)
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 40,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ButtonImage(
-                              context: context,
-                              imagePath: 'assets/svgs/facebook.svg',
-                              color: ColorManager.defaultColor,
-                              onClick: (){}
-                          ),
-                          SizedBox(width: 50.w,),
-                          ButtonImage(
-                              context: context,
-                              imagePath: 'assets/svgs/google.svg',
-                              color: ColorManager.defaultColor,
-                              onClick: (){}
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 50,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Already have an account?',style: TextStyles.font12BlackRegular,),
-                          defaultTextButton(
-                              text: 'Login now',
-                              onClick: () {
-                                context.pushNamed(Routes.loginScreen);
+                      Expanded(
+                        child:DefaultTextField(
+                            context: context,
+                            controller: firstNameController,
+                            keyboardType: TextInputType.text,
+                            label: 'First name',
+                            validate: (value){
+                              if(value==null||value.isEmpty){
+                                return 'Please enter your first name';
                               }
-                          )
-                        ],
+                              return null;
+                            }
+                        ),
                       ),
-                      const RegisterBlocListener()
+                      SizedBox(width: 10.w,),
+                      Expanded(
+                        child:DefaultTextField(
+                            context: context,
+                            controller: lastNameController,
+                            keyboardType: TextInputType.text,
+                            label: 'Last name',
+                            validate: (value){
+                              if(value==null||value.isEmpty){
+                                return 'Please enter your last name';
+                              }
+                              return null;
+                            }
+                        ),
+                      ),
                     ],
                   ),
-                ),
+                  SizedBox(height: 20.h,),
+                  DefaultTextField(
+                      context: context,
+                      controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      label: 'Email address',
+                      validate: (value){
+                        if(value==null||value.isEmpty){
+                          return 'Please enter your email';
+                        }
+                        return null;
+                      }
+                  ),
+                  SizedBox(height: 20.h,),
+                  DefaultTextField(
+                      context: context,
+                      controller: phoneController,
+                      keyboardType: TextInputType.phone,
+                      label: 'Phone',
+                      validate: (value){
+                        if(value==null||value.isEmpty){
+                          return 'Please enter your phone number';
+                        }
+                        return null;
+                      }
+                  ),
+                  SizedBox(height: 20.h,),
+                  PasswordTextField(
+                    label: 'Password',
+                    controller: passwordController,
+                    validate: (value) {
+                      if(value==null||value.isEmpty){
+                        return 'Please enter your password';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 20.h,),
+                  PasswordTextField(
+                    label: 'Confirm password',
+                    controller: confPasswordController,
+                    validate: (value) {
+                      if(value==null||value.isEmpty){
+                        return 'Please confirm your password';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 40.h,),
+                  DefaultButton(
+                      text: 'Sign up',
+                      color: ColorManager.defaultColor,
+                      onClick: (){
+                        if(formKey.currentState!.validate()){
+                          context.read<RegisterCubit>().emitRegisterStates(
+                              RegisterRequestBody(
+                                firstName: firstNameController.text,
+                                lastName: lastNameController.text,
+                                password: passwordController.text,
+                                passwordConfirm: confPasswordController.text,
+                                email: emailController.text,
+                                phone: phoneController.text,
+                              )
+                          );
+                        }
+                      }
+                  ),
+                  SizedBox(height: 40.h,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Expanded(
+                          child:Divider(thickness: 1,color: ColorManager.dashLineColor,)
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 2.w),
+                        child: Text('Or sign up with',style: TextStyles.font16BlackRegular,),
+                      ),
+                      const Expanded(
+                          child:Divider(thickness: 1,color: ColorManager.dashLineColor,)
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 40,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ButtonImage(
+                          context: context,
+                          imagePath: 'assets/svgs/facebook.svg',
+                          color: ColorManager.defaultColor,
+                          onClick: (){}
+                      ),
+                      SizedBox(width: 50.w,),
+                      ButtonImage(
+                          context: context,
+                          imagePath: 'assets/svgs/google.svg',
+                          color: ColorManager.defaultColor,
+                          onClick: (){}
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 50,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Already have an account?',style: TextStyles.font12BlackRegular,),
+                      defaultTextButton(
+                          text: 'Login now',
+                          onClick: () {
+                            context.pushNamed(Routes.loginScreen);
+                          }
+                      )
+                    ],
+                  ),
+                  const RegisterBlocListener()
+                ],
               ),
             ),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 

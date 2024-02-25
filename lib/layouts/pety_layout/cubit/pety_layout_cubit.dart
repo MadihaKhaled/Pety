@@ -5,15 +5,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pety/features/community/community_Screen.dart';
 import 'package:pety/features/home/home_Screen.dart';
-import 'package:pety/features/pet_bot/pet_bot_screen.dart';
-import 'package:pety/layouts/pety_layout/cubit/pety_layout_states.dart';
-import 'package:pety/shared/widgets/button_image.dart';
+import 'package:pety/features/profile/profile_screen.dart';
+import 'package:pety/layouts/pety_layout/cubit/pet_layout_states.dart';
 import 'package:pety/shared/styles/colors.dart';
 import 'package:pety/shared/styles/texts.dart';
 
 class PetLayoutCubit extends Cubit<PetLayoutStates>{
 
-  PetLayoutCubit() : super(PetLayoutInitialState());
+  PetLayoutCubit() : super(const PetLayoutStates.initial());
 
   static PetLayoutCubit get(context) => BlocProvider.of(context);
 
@@ -21,21 +20,31 @@ class PetLayoutCubit extends Cubit<PetLayoutStates>{
   List<Widget> screens = [
     const HomeScreen(),
     const CommunityScreen(),
-    const PetBotScreen()
+    const ProfileScreen()
   ];
 
   List<BottomNavigationBarItem> bottomItems = [
     BottomNavigationBarItem(
-      icon: SvgPicture.asset('assets/svgs/tst.svg',width: 30.w,height: 30.h,color: ColorManager.defaultColor,),
-      label: 'Home'
+      icon: SvgPicture.asset(
+        'assets/svgs/home.svg',
+        width: 30.w,height: 30.h,
+        color: ColorManager.grey,
+      ),
+      activeIcon: SvgPicture.asset(
+        'assets/svgs/home.svg',
+        width: 30.w,height: 30.h,
+        color: ColorManager.defaultColor,
+        ),
+      label: 'Home',
     ),
     BottomNavigationBarItem(
-        icon: SvgPicture.asset('assets/svgs/menu.svg'),
+        icon: SvgPicture.asset('assets/svgs/pet_profile.svg',width: 30.w,height: 30.h,color: ColorManager.defaultColor,),
         label: 'Community'
     ),
     BottomNavigationBarItem(
-        icon: SvgPicture.asset('assets/svgs/menu.svg'),
-        label: 'PetBot'
+        icon: SvgPicture.asset('assets/svgs/ppp.svg',width: 30.w,height: 30.h,color: ColorManager.defaultColor,),
+        //icon: Image(image: const AssetImage('assets/images/pet_prof.png'),width: 30.w,height: 30.h),
+        label: 'Profile'
     ),
   ];
 
@@ -71,7 +80,8 @@ class PetLayoutCubit extends Cubit<PetLayoutStates>{
 
   void changeBottomNavIndex(int index){
     currentIndex = index;
-    emit(PetLayoutChangeBottomNavIndexState());
+    emit(const PetLayoutStates.initial());
+    emit(const PetLayoutStates.changeBottomNavIndexState());
   }
 
 }

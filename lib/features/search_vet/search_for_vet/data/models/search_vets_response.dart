@@ -26,7 +26,7 @@ class Data {
   String? address;
   String? phoneNumber;
   num? price;
-  List<String>? animalsTypes;
+  List<String>? animals;
   String? description;
   String? role;
   String? email;
@@ -40,7 +40,7 @@ class Data {
     this.address,
     this.phoneNumber,
     this.price,
-    this.animalsTypes,
+    this.animals,
     this.description,
     this.role,
     this.email,

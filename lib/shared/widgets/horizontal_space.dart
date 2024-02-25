@@ -2,16 +2,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class VerticalSpace extends StatelessWidget{
-  final double space;
-  const VerticalSpace({
+class HorizontalSpace extends StatelessWidget{
+  final double width;
+  const HorizontalSpace({
     super.key,
-    required this.space
+    required this.width
   });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(height:space.h,);
+    return SizedBox(width:width.w,);
   }
 
 }

@@ -2,6 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pety/layouts/pety_layout/cubit/pety_layout_cubit.dart';
+import 'package:pety/shared/extensions.dart';
+import 'package:pety/shared/routing/routes.dart';
+import 'package:pety/shared/styles/colors.dart';
 
 class JobItemWidget extends StatelessWidget{
 
@@ -16,8 +19,8 @@ class JobItemWidget extends StatelessWidget{
     return Column(
       children: [
         SizedBox(
-          height: 120.h,
           width: 120.w,
+          height: 120.h,
           child: Card(
             elevation: 0,
             //surfaceTintColor: Colors.white,
@@ -25,7 +28,14 @@ class JobItemWidget extends StatelessWidget{
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            child: Center(child: Image(image: AssetImage(model.image),height: 80.h,width: 80.w,)),
+            child: InkWell(
+                onTap: (){
+                  context.pushNamed(Routes.searchForVet);
+                },
+                borderRadius: BorderRadius.circular(20),
+                splashColor: ColorManager.defaultColor,
+                child: Center(child: Image(image: AssetImage(model.image),height: 80.h,width: 80.w,))
+            ),
           ),
         ),
 

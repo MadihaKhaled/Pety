@@ -12,6 +12,8 @@ class ColorManager{
   static const Color dashLineColor = Color(0xffD9D9D9);
   static const Color homeBackground = Color(0xffEDF5F6);
   static const Color hintOFSearchTextField = Color(0xffa69e9e);
+  static const Color resetButtonColor = Color(0xffBFBFBF);
+  static const Color filtersGreyColor = Color(0xff555555);
   static const Color orange = Color(0xffFFA500);
   static const Color yellow = Color(0xffFFB624);
 

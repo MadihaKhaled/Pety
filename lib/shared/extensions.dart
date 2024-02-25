@@ -19,3 +19,10 @@ extension Navigation on BuildContext {
 
   void pop() => Navigator.of(this).pop();
 }
+
+extension Regex on String{
+  bool isNotBlank(){
+    RegExp regex = RegExp(r"(.|\s)*\S(.|\s)*", multiLine: true);
+    return regex.hasMatch(this);
+  }
+}

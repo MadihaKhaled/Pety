@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pety/layouts/pety_layout/cubit/pety_layout_cubit.dart';
-import 'package:pety/layouts/pety_layout/cubit/pety_layout_states.dart';
+import 'package:pety/layouts/pety_layout/cubit/pet_layout_states.dart';
 import 'package:pety/shared/styles/colors.dart';
 
 class PetLayout extends StatelessWidget{
@@ -10,27 +10,24 @@ class PetLayout extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) => PetLayoutCubit(),
-      child: BlocConsumer<PetLayoutCubit,PetLayoutStates>(
-        listener: (BuildContext context, PetLayoutStates state) {  },
-        builder: (BuildContext context, PetLayoutStates state) {
-          PetLayoutCubit cubit = PetLayoutCubit.get(context);
-          return Scaffold(
-            appBar: cubit.titles[cubit.currentIndex],
-            body: cubit.screens[cubit.currentIndex],
-            bottomNavigationBar: BottomNavigationBar(
-              items: cubit.bottomItems,
-              currentIndex: cubit.currentIndex,
-              onTap: (index){
-                cubit.changeBottomNavIndex(index);
-              },
-            ),
-            backgroundColor: ColorManager.homeBackground,
-          );
-        },
-      ),
+    return BlocBuilder<PetLayoutCubit,PetLayoutStates>(
+      builder: (BuildContext context, PetLayoutStates state) {
+        PetLayoutCubit cubit = PetLayoutCubit.get(context);
+        return Scaffold(
+          appBar: cubit.titles[cubit.currentIndex],
+          body: cubit.screens[cubit.currentIndex],
+          bottomNavigationBar: BottomNavigationBar(
+            items: cubit.bottomItems,
+            currentIndex: cubit.currentIndex,
+            onTap: (index){
+              cubit.changeBottomNavIndex(index);
+            },
+          ),
+          backgroundColor: ColorManager.homeBackground,
+        );
+      },
     );
+
   }
 
 }

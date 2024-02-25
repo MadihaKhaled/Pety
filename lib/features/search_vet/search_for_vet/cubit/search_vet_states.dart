@@ -7,4 +7,5 @@ class SearchVetStates<T> with _$SearchVetStates<T> {
   const factory SearchVetStates.loading() = Loading;
   const factory SearchVetStates.success(T data) = Success<T>;
   const factory SearchVetStates.error({required String error}) = Error;
+  const factory SearchVetStates.changeFilterValue() = ChangeFilterValue;
 }

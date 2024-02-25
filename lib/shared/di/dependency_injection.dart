@@ -5,6 +5,8 @@ import 'package:pety/features/login/cubit/login_cubit.dart';
 import 'package:pety/features/login/data/repository/login_repo.dart';
 import 'package:pety/features/register/cubit/register_cubit.dart';
 import 'package:pety/features/register/data/repository/register_repo.dart';
+import 'package:pety/features/search_vet/search_for_vet/cubit/search_vet_cubit.dart';
+import 'package:pety/features/search_vet/search_for_vet/data/repository/search_vet_repo.dart';
 import 'package:pety/shared/network/remote/api_service.dart';
 import 'package:pety/shared/network/remote/dio_helper.dart';
 
@@ -18,10 +20,17 @@ Future<void> setupGetIt() async{
 
   // login
   getIt.registerLazySingleton<LoginRepository>(() => LoginRepository(getIt()));
-  getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
 
   // register
   getIt.registerLazySingleton<RegisterRepository>(() => RegisterRepository(getIt()));
-  getIt.registerLazySingleton<RegisterCubit>(() => RegisterCubit(getIt()));
+  getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
+
+  // search vet
+  getIt.registerLazySingleton<SearchVetRepository>(() => SearchVetRepository(getIt()));
+  getIt.registerFactory<SearchVetCubit>(() => SearchVetCubit(getIt()));
+
+  //Pet Layout
+
 
 }

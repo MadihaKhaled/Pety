@@ -7,7 +7,12 @@ import 'package:pety/shared/styles/themes.dart';
 
 class PetyApp extends StatelessWidget {
   final AppRouter appRouter;
-  const PetyApp({super.key, required this.appRouter});
+  final String initialRoute;
+  const PetyApp({
+    super.key,
+    required this.appRouter,
+    required this.initialRoute,
+  });
 
   // This widget is the root of your application.
   @override
@@ -20,7 +25,7 @@ class PetyApp extends StatelessWidget {
         return MaterialApp(
           theme: lightTheme,
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.loginScreen,
+          initialRoute: initialRoute,
           onGenerateRoute: appRouter.generateRoute,
         );
       }

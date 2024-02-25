@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'colors.dart';
 
 ThemeData lightTheme = ThemeData(
+
   scaffoldBackgroundColor: Colors.white,
   //primaryColor: ColorManager.defaultColor,
   colorScheme: ColorScheme.fromSeed(
