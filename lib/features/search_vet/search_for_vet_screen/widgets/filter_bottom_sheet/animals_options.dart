@@ -1,8 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pety/features/search_vet/search_for_vet/cubit/search_vet_cubit.dart';
-import 'package:pety/features/search_vet/search_for_vet/cubit/search_vet_states.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pety/features/search_vet/cubit/search_vet_cubit.dart';
+import 'package:pety/features/search_vet/cubit/search_vet_states.dart';
 import 'package:pety/shared/styles/texts.dart';
 
 class AnimalsOptions extends StatelessWidget {
@@ -24,8 +25,7 @@ class AnimalsOptions extends StatelessWidget {
           height: 80,
           child: GridView.builder(
             scrollDirection: Axis.vertical,
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 100),
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 100.w),
             itemCount: cubitContext.read<SearchVetCubit>().animals.length,
             itemBuilder: (BuildContext context, int index) {
 

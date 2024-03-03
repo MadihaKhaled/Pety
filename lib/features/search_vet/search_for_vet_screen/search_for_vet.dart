@@ -2,8 +2,8 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pety/features/search_vet/search_for_vet/cubit/search_vet_cubit.dart';
-import 'package:pety/features/search_vet/search_for_vet/cubit/search_vet_states.dart';
+import 'package:pety/features/search_vet/cubit/search_vet_cubit.dart';
+import 'package:pety/features/search_vet/cubit/search_vet_states.dart';
 import 'package:pety/features/search_vet/search_for_vet/widgets/filter_bottom_sheet/animals_options.dart';
 import 'package:pety/features/search_vet/search_for_vet/widgets/filter_bottom_sheet/apply_reset_buttons.dart';
 import 'package:pety/features/search_vet/search_for_vet/widgets/filter_bottom_sheet/availability_options.dart';
