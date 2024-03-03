@@ -1,11 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pety/features/search_vet/cubit/search_vet_cubit.dart';
 import 'package:pety/features/search_vet/data/models/search_vets_response.dart';
-import 'package:pety/shared/extensions.dart';
-import 'package:pety/shared/routing/routes.dart';
 import 'package:pety/shared/styles/colors.dart';
 import 'package:pety/shared/styles/texts.dart';
 import 'package:pety/shared/widgets/default_rating_indicator.dart';
@@ -16,14 +15,14 @@ class VetItemWidget extends StatelessWidget{
   final Data item;
   const VetItemWidget({
     super.key,
-    required this.item
+    required this.item,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        context.pushNamed(Routes.bookVet);
+        context.read<SearchVetCubit>().moveToVetDetails(item, context);
       },
       borderRadius: BorderRadius.circular(35),
       child: Row(

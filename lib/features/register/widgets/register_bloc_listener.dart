@@ -67,7 +67,7 @@ class RegisterBlocListener extends StatelessWidget{
             },
             child: Text(
               'Got it',
-              style: TextStyles.font14DefaultRegular,
+              style: TextStyles.font12DefaultRegular,
             ),
           ),
         ],

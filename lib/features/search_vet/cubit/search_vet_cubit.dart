@@ -1,15 +1,17 @@
 
 
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'package:pety/features/search_vet/search_for_vet/cubit/search_vet_states.dart';
+import 'package:intl/intl.dart';
+import 'package:pety/features/search_vet/book_vet_screen/data/models/book_vet_body.dart';
+import 'package:pety/features/search_vet/cubit/search_vet_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pety/features/search_vet/search_for_vet/data/models/animal_model.dart';
-import 'package:pety/features/search_vet/search_for_vet/data/models/search_vets_response.dart';
-import 'package:pety/features/search_vet/search_for_vet/data/repository/search_vet_repo.dart';
+import 'package:pety/features/search_vet/data/models/animal_model.dart';
+import 'package:pety/features/search_vet/data/models/search_vets_response.dart';
+import 'package:pety/features/search_vet/data/repository/search_vet_repo.dart';
 import 'package:pety/shared/extensions.dart';
 import 'package:pety/shared/network/remote/api_constants.dart';
+import 'package:pety/shared/routing/routes.dart';
+
 
 
 class SearchVetCubit extends Cubit<SearchVetStates> {
@@ -18,21 +20,23 @@ class SearchVetCubit extends Cubit<SearchVetStates> {
 
   SearchVetCubit(this._searchVetRepository) : super( const SearchVetStates.initial());
 
-  ScrollController bottomSheetScrollController = ScrollController();
   List<Data>? vets;
   bool addMore = true;
   bool offers = false;
   bool fromUpperToLower = true;
   int minPrice=50,maxPrice=600;
-  String availability = Availability.anyDay;
-  String sort = SortBy.rate;
+  String availability = AvailabilityConstants.anyDay;
+  String sort = SortByConstants.rate;
   TextEditingController searchController = TextEditingController();
   List<AnimalModel> animals =
   [
-    AnimalModel('Cat',Animals.cat),
-    AnimalModel('Dog',Animals.dog),
+    AnimalModel('Cat',AnimalsConstants.cat),
+    AnimalModel('Dog',AnimalsConstants.dog),
   ];
 
+  Data? chosenVet;
+  int clickedAppointment=-1;
+  String? chosenTime;
 
   void getVets({
     int page = 1,
@@ -52,7 +56,7 @@ class SearchVetCubit extends Cubit<SearchVetStates> {
       curAnimals = curAnimals.substring(0, curAnimals.length - 1);
     }
     final response = await _searchVetRepository.getVets(
-      role: PetyRoles.vet,
+      role: PetyRolesConstants.vet,
       sort: fromUpperToLower?'-$sort':sort,
       minPrice: minPrice,
       maxPrice: maxPrice,
@@ -79,6 +83,25 @@ class SearchVetCubit extends Cubit<SearchVetStates> {
       failure: (error){
         emit(SearchVetStates.error(error:error.apiErrorModel.message!));
       }
+    );
+  }
+
+  void bookVet() async{
+    emit(const SearchVetStates.loading());
+    final response = await _searchVetRepository.bookVet(
+      bookVetBody: BookVetBody(
+        petyID: chosenVet!.id!,
+        date: chosenVet!.availabilityFormatted![clickedAppointment].date!,
+        time: chosenTime!
+      )
+    );
+    response.when(
+        success: (data){
+          emit(SearchVetStates.success(data));
+        },
+        failure: (error){
+          emit(SearchVetStates.error(error: error.apiErrorModel.message!));
+        }
     );
   }
 
@@ -120,19 +143,50 @@ class SearchVetCubit extends Cubit<SearchVetStates> {
   }
 
   void resetFilters(){
+    emit(const SearchVetStates.loading());
     offers = false;
     fromUpperToLower = true;
     minPrice=50;
     maxPrice=600;
-    availability = Availability.anyDay;
-    sort = SortBy.rate;
+    availability = AvailabilityConstants.anyDay;
+    sort = SortByConstants.rate;
     for(AnimalModel animal in animals){
       animal.isSelected=false;
     }
-    emit(const SearchVetStates.initial());
     emit(const SearchVetStates.changeFilterValue());
   }
 
+  void moveToVetDetails(Data vet,BuildContext context){
+    emit(const SearchVetStates.loading());
+    chosenVet = vet;
+    context.pushNamed(Routes.vetDetails,arguments: context);
+    emit(const SearchVetStates.moveToNextScreen());
+  }
+
+  void moveToBookVet(BuildContext context,String time){
+    emit(const SearchVetStates.loading());
+    chosenTime = time;
+    context.pushNamed(Routes.bookVet,arguments: context);
+    emit(const SearchVetStates.moveToNextScreen());
+  }
+  
+  void onBackPressed(BuildContext context){
+    emit(const SearchVetStates.loading());
+    context.pop();
+    //chosenVet = null;
+    clickedAppointment=-1;
+    emit(const SearchVetStates.moveToPrevScreen());
+  }
+
+  void changeClickedAppointment(int index){
+    emit(const SearchVetStates.loading());
+    if(index==clickedAppointment){
+      clickedAppointment=-1;
+    }else{
+      clickedAppointment=index;
+    }
+    emit(const SearchVetStates.moveToPrevScreen());
+  }
 
 }
 

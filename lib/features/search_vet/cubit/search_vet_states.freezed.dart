@@ -23,6 +23,8 @@ mixin _$SearchVetStates<T> {
     required TResult Function(T data) success,
     required TResult Function(String error) error,
     required TResult Function() changeFilterValue,
+    required TResult Function() moveToNextScreen,
+    required TResult Function() moveToPrevScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +34,8 @@ mixin _$SearchVetStates<T> {
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
     TResult? Function()? changeFilterValue,
+    TResult? Function()? moveToNextScreen,
+    TResult? Function()? moveToPrevScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +45,8 @@ mixin _$SearchVetStates<T> {
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     TResult Function()? changeFilterValue,
+    TResult Function()? moveToNextScreen,
+    TResult Function()? moveToPrevScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +57,8 @@ mixin _$SearchVetStates<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
     required TResult Function(ChangeFilterValue<T> value) changeFilterValue,
+    required TResult Function(MoveToNextScreen<T> value) moveToNextScreen,
+    required TResult Function(MoveToPrevScreen<T> value) moveToPrevScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +68,8 @@ mixin _$SearchVetStates<T> {
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
     TResult? Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult? Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult? Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +79,8 @@ mixin _$SearchVetStates<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     TResult Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,6 +147,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(T data) success,
     required TResult Function(String error) error,
     required TResult Function() changeFilterValue,
+    required TResult Function() moveToNextScreen,
+    required TResult Function() moveToPrevScreen,
   }) {
     return initial();
   }
@@ -147,6 +161,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
     TResult? Function()? changeFilterValue,
+    TResult? Function()? moveToNextScreen,
+    TResult? Function()? moveToPrevScreen,
   }) {
     return initial?.call();
   }
@@ -159,6 +175,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     TResult Function()? changeFilterValue,
+    TResult Function()? moveToNextScreen,
+    TResult Function()? moveToPrevScreen,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -175,6 +193,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
     required TResult Function(ChangeFilterValue<T> value) changeFilterValue,
+    required TResult Function(MoveToNextScreen<T> value) moveToNextScreen,
+    required TResult Function(MoveToPrevScreen<T> value) moveToPrevScreen,
   }) {
     return initial(this);
   }
@@ -187,6 +207,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
     TResult? Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult? Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult? Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
   }) {
     return initial?.call(this);
   }
@@ -199,6 +221,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     TResult Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -255,6 +279,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(T data) success,
     required TResult Function(String error) error,
     required TResult Function() changeFilterValue,
+    required TResult Function() moveToNextScreen,
+    required TResult Function() moveToPrevScreen,
   }) {
     return loading();
   }
@@ -267,6 +293,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
     TResult? Function()? changeFilterValue,
+    TResult? Function()? moveToNextScreen,
+    TResult? Function()? moveToPrevScreen,
   }) {
     return loading?.call();
   }
@@ -279,6 +307,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     TResult Function()? changeFilterValue,
+    TResult Function()? moveToNextScreen,
+    TResult Function()? moveToPrevScreen,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -295,6 +325,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
     required TResult Function(ChangeFilterValue<T> value) changeFilterValue,
+    required TResult Function(MoveToNextScreen<T> value) moveToNextScreen,
+    required TResult Function(MoveToPrevScreen<T> value) moveToPrevScreen,
   }) {
     return loading(this);
   }
@@ -307,6 +339,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
     TResult? Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult? Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult? Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
   }) {
     return loading?.call(this);
   }
@@ -319,6 +353,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     TResult Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -402,6 +438,8 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(T data) success,
     required TResult Function(String error) error,
     required TResult Function() changeFilterValue,
+    required TResult Function() moveToNextScreen,
+    required TResult Function() moveToPrevScreen,
   }) {
     return success(data);
   }
@@ -414,6 +452,8 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
     TResult? Function()? changeFilterValue,
+    TResult? Function()? moveToNextScreen,
+    TResult? Function()? moveToPrevScreen,
   }) {
     return success?.call(data);
   }
@@ -426,6 +466,8 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     TResult Function()? changeFilterValue,
+    TResult Function()? moveToNextScreen,
+    TResult Function()? moveToPrevScreen,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -442,6 +484,8 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
     required TResult Function(ChangeFilterValue<T> value) changeFilterValue,
+    required TResult Function(MoveToNextScreen<T> value) moveToNextScreen,
+    required TResult Function(MoveToPrevScreen<T> value) moveToPrevScreen,
   }) {
     return success(this);
   }
@@ -454,6 +498,8 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
     TResult? Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult? Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult? Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
   }) {
     return success?.call(this);
   }
@@ -466,6 +512,8 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     TResult Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -553,6 +601,8 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(T data) success,
     required TResult Function(String error) error,
     required TResult Function() changeFilterValue,
+    required TResult Function() moveToNextScreen,
+    required TResult Function() moveToPrevScreen,
   }) {
     return error(this.error);
   }
@@ -565,6 +615,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
     TResult? Function()? changeFilterValue,
+    TResult? Function()? moveToNextScreen,
+    TResult? Function()? moveToPrevScreen,
   }) {
     return error?.call(this.error);
   }
@@ -577,6 +629,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     TResult Function()? changeFilterValue,
+    TResult Function()? moveToNextScreen,
+    TResult Function()? moveToPrevScreen,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -593,6 +647,8 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
     required TResult Function(ChangeFilterValue<T> value) changeFilterValue,
+    required TResult Function(MoveToNextScreen<T> value) moveToNextScreen,
+    required TResult Function(MoveToPrevScreen<T> value) moveToPrevScreen,
   }) {
     return error(this);
   }
@@ -605,6 +661,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
     TResult? Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult? Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult? Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
   }) {
     return error?.call(this);
   }
@@ -617,6 +675,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     TResult Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -679,6 +739,8 @@ class _$ChangeFilterValueImpl<T> implements ChangeFilterValue<T> {
     required TResult Function(T data) success,
     required TResult Function(String error) error,
     required TResult Function() changeFilterValue,
+    required TResult Function() moveToNextScreen,
+    required TResult Function() moveToPrevScreen,
   }) {
     return changeFilterValue();
   }
@@ -691,6 +753,8 @@ class _$ChangeFilterValueImpl<T> implements ChangeFilterValue<T> {
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
     TResult? Function()? changeFilterValue,
+    TResult? Function()? moveToNextScreen,
+    TResult? Function()? moveToPrevScreen,
   }) {
     return changeFilterValue?.call();
   }
@@ -703,6 +767,8 @@ class _$ChangeFilterValueImpl<T> implements ChangeFilterValue<T> {
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     TResult Function()? changeFilterValue,
+    TResult Function()? moveToNextScreen,
+    TResult Function()? moveToPrevScreen,
     required TResult orElse(),
   }) {
     if (changeFilterValue != null) {
@@ -719,6 +785,8 @@ class _$ChangeFilterValueImpl<T> implements ChangeFilterValue<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
     required TResult Function(ChangeFilterValue<T> value) changeFilterValue,
+    required TResult Function(MoveToNextScreen<T> value) moveToNextScreen,
+    required TResult Function(MoveToPrevScreen<T> value) moveToPrevScreen,
   }) {
     return changeFilterValue(this);
   }
@@ -731,6 +799,8 @@ class _$ChangeFilterValueImpl<T> implements ChangeFilterValue<T> {
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
     TResult? Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult? Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult? Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
   }) {
     return changeFilterValue?.call(this);
   }
@@ -743,6 +813,8 @@ class _$ChangeFilterValueImpl<T> implements ChangeFilterValue<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     TResult Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
     required TResult orElse(),
   }) {
     if (changeFilterValue != null) {
@@ -754,4 +826,270 @@ class _$ChangeFilterValueImpl<T> implements ChangeFilterValue<T> {
 
 abstract class ChangeFilterValue<T> implements SearchVetStates<T> {
   const factory ChangeFilterValue() = _$ChangeFilterValueImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$MoveToNextScreenImplCopyWith<T, $Res> {
+  factory _$$MoveToNextScreenImplCopyWith(_$MoveToNextScreenImpl<T> value,
+          $Res Function(_$MoveToNextScreenImpl<T>) then) =
+      __$$MoveToNextScreenImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$MoveToNextScreenImplCopyWithImpl<T, $Res>
+    extends _$SearchVetStatesCopyWithImpl<T, $Res, _$MoveToNextScreenImpl<T>>
+    implements _$$MoveToNextScreenImplCopyWith<T, $Res> {
+  __$$MoveToNextScreenImplCopyWithImpl(_$MoveToNextScreenImpl<T> _value,
+      $Res Function(_$MoveToNextScreenImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$MoveToNextScreenImpl<T> implements MoveToNextScreen<T> {
+  const _$MoveToNextScreenImpl();
+
+  @override
+  String toString() {
+    return 'SearchVetStates<$T>.moveToNextScreen()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MoveToNextScreenImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) success,
+    required TResult Function(String error) error,
+    required TResult Function() changeFilterValue,
+    required TResult Function() moveToNextScreen,
+    required TResult Function() moveToPrevScreen,
+  }) {
+    return moveToNextScreen();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? success,
+    TResult? Function(String error)? error,
+    TResult? Function()? changeFilterValue,
+    TResult? Function()? moveToNextScreen,
+    TResult? Function()? moveToPrevScreen,
+  }) {
+    return moveToNextScreen?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? success,
+    TResult Function(String error)? error,
+    TResult Function()? changeFilterValue,
+    TResult Function()? moveToNextScreen,
+    TResult Function()? moveToPrevScreen,
+    required TResult orElse(),
+  }) {
+    if (moveToNextScreen != null) {
+      return moveToNextScreen();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(ChangeFilterValue<T> value) changeFilterValue,
+    required TResult Function(MoveToNextScreen<T> value) moveToNextScreen,
+    required TResult Function(MoveToPrevScreen<T> value) moveToPrevScreen,
+  }) {
+    return moveToNextScreen(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult? Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult? Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
+  }) {
+    return moveToNextScreen?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
+    required TResult orElse(),
+  }) {
+    if (moveToNextScreen != null) {
+      return moveToNextScreen(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MoveToNextScreen<T> implements SearchVetStates<T> {
+  const factory MoveToNextScreen() = _$MoveToNextScreenImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$MoveToPrevScreenImplCopyWith<T, $Res> {
+  factory _$$MoveToPrevScreenImplCopyWith(_$MoveToPrevScreenImpl<T> value,
+          $Res Function(_$MoveToPrevScreenImpl<T>) then) =
+      __$$MoveToPrevScreenImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$MoveToPrevScreenImplCopyWithImpl<T, $Res>
+    extends _$SearchVetStatesCopyWithImpl<T, $Res, _$MoveToPrevScreenImpl<T>>
+    implements _$$MoveToPrevScreenImplCopyWith<T, $Res> {
+  __$$MoveToPrevScreenImplCopyWithImpl(_$MoveToPrevScreenImpl<T> _value,
+      $Res Function(_$MoveToPrevScreenImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$MoveToPrevScreenImpl<T> implements MoveToPrevScreen<T> {
+  const _$MoveToPrevScreenImpl();
+
+  @override
+  String toString() {
+    return 'SearchVetStates<$T>.moveToPrevScreen()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MoveToPrevScreenImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) success,
+    required TResult Function(String error) error,
+    required TResult Function() changeFilterValue,
+    required TResult Function() moveToNextScreen,
+    required TResult Function() moveToPrevScreen,
+  }) {
+    return moveToPrevScreen();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? success,
+    TResult? Function(String error)? error,
+    TResult? Function()? changeFilterValue,
+    TResult? Function()? moveToNextScreen,
+    TResult? Function()? moveToPrevScreen,
+  }) {
+    return moveToPrevScreen?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? success,
+    TResult Function(String error)? error,
+    TResult Function()? changeFilterValue,
+    TResult Function()? moveToNextScreen,
+    TResult Function()? moveToPrevScreen,
+    required TResult orElse(),
+  }) {
+    if (moveToPrevScreen != null) {
+      return moveToPrevScreen();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(ChangeFilterValue<T> value) changeFilterValue,
+    required TResult Function(MoveToNextScreen<T> value) moveToNextScreen,
+    required TResult Function(MoveToPrevScreen<T> value) moveToPrevScreen,
+  }) {
+    return moveToPrevScreen(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult? Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult? Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
+  }) {
+    return moveToPrevScreen?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(ChangeFilterValue<T> value)? changeFilterValue,
+    TResult Function(MoveToNextScreen<T> value)? moveToNextScreen,
+    TResult Function(MoveToPrevScreen<T> value)? moveToPrevScreen,
+    required TResult orElse(),
+  }) {
+    if (moveToPrevScreen != null) {
+      return moveToPrevScreen(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MoveToPrevScreen<T> implements SearchVetStates<T> {
+  const factory MoveToPrevScreen() = _$MoveToPrevScreenImpl<T>;
 }

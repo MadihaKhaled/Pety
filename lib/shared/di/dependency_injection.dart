@@ -5,8 +5,8 @@ import 'package:pety/features/login/cubit/login_cubit.dart';
 import 'package:pety/features/login/data/repository/login_repo.dart';
 import 'package:pety/features/register/cubit/register_cubit.dart';
 import 'package:pety/features/register/data/repository/register_repo.dart';
-import 'package:pety/features/search_vet/search_for_vet/cubit/search_vet_cubit.dart';
-import 'package:pety/features/search_vet/search_for_vet/data/repository/search_vet_repo.dart';
+import 'package:pety/features/search_vet/cubit/search_vet_cubit.dart';
+import 'package:pety/features/search_vet/data/repository/search_vet_repo.dart';
 import 'package:pety/shared/network/remote/api_service.dart';
 import 'package:pety/shared/network/remote/dio_helper.dart';
 

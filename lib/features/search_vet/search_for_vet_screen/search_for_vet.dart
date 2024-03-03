@@ -4,15 +4,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pety/features/search_vet/cubit/search_vet_cubit.dart';
 import 'package:pety/features/search_vet/cubit/search_vet_states.dart';
-import 'package:pety/features/search_vet/search_for_vet/widgets/filter_bottom_sheet/animals_options.dart';
-import 'package:pety/features/search_vet/search_for_vet/widgets/filter_bottom_sheet/apply_reset_buttons.dart';
-import 'package:pety/features/search_vet/search_for_vet/widgets/filter_bottom_sheet/availability_options.dart';
-import 'package:pety/features/search_vet/search_for_vet/widgets/filter_bottom_sheet/bottom_header.dart';
-import 'package:pety/features/search_vet/search_for_vet/widgets/filter_bottom_sheet/from_upper_to_lower.dart';
-import 'package:pety/features/search_vet/search_for_vet/widgets/filter_bottom_sheet/price.dart';
-import 'package:pety/features/search_vet/search_for_vet/widgets/filter_bottom_sheet/sort_options.dart';
-import 'package:pety/features/search_vet/search_for_vet/widgets/filter_bottom_sheet/vet_name_and_offers.dart';
-import 'package:pety/features/search_vet/search_for_vet/widgets/vet_item_widget.dart';
+import 'package:pety/features/search_vet/search_for_vet_screen/widgets/filter_bottom_sheet/animals_options.dart';
+import 'package:pety/features/search_vet/search_for_vet_screen/widgets/filter_bottom_sheet/apply_reset_buttons.dart';
+import 'package:pety/features/search_vet/search_for_vet_screen/widgets/filter_bottom_sheet/availability_options.dart';
+import 'package:pety/features/search_vet/search_for_vet_screen/widgets/filter_bottom_sheet/bottom_header.dart';
+import 'package:pety/features/search_vet/search_for_vet_screen/widgets/filter_bottom_sheet/from_upper_to_lower.dart';
+import 'package:pety/features/search_vet/search_for_vet_screen/widgets/filter_bottom_sheet/price.dart';
+import 'package:pety/features/search_vet/search_for_vet_screen/widgets/filter_bottom_sheet/sort_options.dart';
+import 'package:pety/features/search_vet/search_for_vet_screen/widgets/filter_bottom_sheet/vet_name_and_offers.dart';
+import 'package:pety/features/search_vet/search_for_vet_screen/widgets/vet_item_widget.dart';
 import 'package:pety/shared/styles/colors.dart';
 import 'package:pety/shared/widgets/default_search.dart';
 import 'package:pety/shared/widgets/vertical_space.dart';
@@ -122,7 +122,6 @@ class _SearchForVetState extends State<SearchForVet> {
                 const HeaderBottomSheet(),
                 Expanded(
                   child: SingleChildScrollView(
-                    controller: cubitContext.read<SearchVetCubit>().bottomSheetScrollController,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

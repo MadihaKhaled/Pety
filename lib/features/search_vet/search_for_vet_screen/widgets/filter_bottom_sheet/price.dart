@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pety/features/search_vet/search_for_vet/cubit/search_vet_cubit.dart';
-import 'package:pety/features/search_vet/search_for_vet/cubit/search_vet_states.dart';
+import 'package:pety/features/search_vet/cubit/search_vet_cubit.dart';
+import 'package:pety/features/search_vet/cubit/search_vet_states.dart';
+import 'package:pety/shared/constants/constant_numbers.dart';
 import 'package:pety/shared/styles/colors.dart';
 import 'package:pety/shared/styles/texts.dart';
 import 'package:pety/shared/widgets/vertical_space.dart';
@@ -38,8 +39,8 @@ class PriceFilters extends StatelessWidget {
                 child: RangeSlider(
                     values: RangeValues(
                       cubit.minPrice.toDouble(), cubit.maxPrice.toDouble()),
-                      min: 0,
-                      max: 800,
+                      min: ConstantNumbers.minRangeSlider,
+                      max: ConstantNumbers.maxRangeSlider,
                       divisions: 10,
                       labels: RangeLabels(
                           cubit.minPrice.toString(), cubit.maxPrice.toString()),

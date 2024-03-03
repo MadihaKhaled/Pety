@@ -1,28 +1,21 @@
+
+import 'package:json_annotation/json_annotation.dart';
+part 'book_vet_body.g.dart';
+
+
+@JsonSerializable()
 class BookVetBody {
+
+  String petyID;
+  String date;
+  String time;
+
   BookVetBody({
-      this.petyID, 
-      this.date, 
-      this.time, 
-      this.animals,});
+    required this.petyID,
+    required this.date,
+    required this.time,
+  });
 
-  BookVetBody.fromJson(dynamic json) {
-    petyID = json['petyID'];
-    date = json['date'];
-    time = json['time'];
-    animals = json['animals'];
-  }
-  String? petyID;
-  String? date;
-  String? time;
-  String? animals;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['petyID'] = petyID;
-    map['date'] = date;
-    map['time'] = time;
-    map['animals'] = animals;
-    return map;
-  }
+  Map<String,dynamic> toJson() =>_$BookVetBodyToJson(this);
 
 }

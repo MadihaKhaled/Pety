@@ -32,6 +32,7 @@ class Data {
   String? email;
   num? averageRate;
   bool? offer;
+  List<AvailabilityFormatted>? availabilityFormatted;
 
   Data({
     this.id,
@@ -46,8 +47,45 @@ class Data {
     this.email,
     this.averageRate,
     this.offer,
+    this.availabilityFormatted,
   });
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
+
+}
+
+@JsonSerializable()
+class AvailabilityFormatted {
+
+  String? date;
+  List<Appointments>? appointments;
+  String? id;
+  List<String>? formatedDate;
+  String? formate2Date;
+
+  AvailabilityFormatted({
+    this.date,
+    this.appointments,
+    this.id,
+  });
+
+  factory AvailabilityFormatted.fromJson(Map<String, dynamic> json) => _$AvailabilityFormattedFromJson(json);
+
+}
+
+@JsonSerializable()
+class Appointments {
+
+  String? time;
+  bool? isAvailable;
+  String? id;
+
+  Appointments({
+    this.time,
+    this.isAvailable,
+    this.id,
+  });
+
+  factory Appointments.fromJson(Map<String, dynamic> json) => _$AppointmentsFromJson(json);
 
 }

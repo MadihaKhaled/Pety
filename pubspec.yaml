@@ -51,6 +51,7 @@ dependencies:
   build_runner: ^2.4.8
   get_it: ^7.6.7
   conditional_builder_null_safety: ^0.0.6
+  intl: ^0.19.0
 
 
 dev_dependencies:

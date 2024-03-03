@@ -34,6 +34,10 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
       email: json['email'] as String?,
       averageRate: json['averageRate'] as num?,
       offer: json['offer'] as bool?,
+      availabilityFormatted: (json['availabilityFormatted'] as List<dynamic>?)
+          ?.map(
+              (e) => AvailabilityFormatted.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
@@ -49,4 +53,42 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'email': instance.email,
       'averageRate': instance.averageRate,
       'offer': instance.offer,
+      'availabilityFormatted': instance.availabilityFormatted,
+    };
+
+AvailabilityFormatted _$AvailabilityFormattedFromJson(
+        Map<String, dynamic> json) =>
+    AvailabilityFormatted(
+      date: json['date'] as String?,
+      appointments: (json['appointments'] as List<dynamic>?)
+          ?.map((e) => Appointments.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      id: json['id'] as String?,
+    )
+      ..formatedDate = (json['formatedDate'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList()
+      ..formate2Date = json['formate2Date'] as String?;
+
+Map<String, dynamic> _$AvailabilityFormattedToJson(
+        AvailabilityFormatted instance) =>
+    <String, dynamic>{
+      'date': instance.date,
+      'appointments': instance.appointments,
+      'id': instance.id,
+      'formatedDate': instance.formatedDate,
+      'formate2Date': instance.formate2Date,
+    };
+
+Appointments _$AppointmentsFromJson(Map<String, dynamic> json) => Appointments(
+      time: json['time'] as String?,
+      isAvailable: json['isAvailable'] as bool?,
+      id: json['id'] as String?,
+    );
+
+Map<String, dynamic> _$AppointmentsToJson(Appointments instance) =>
+    <String, dynamic>{
+      'time': instance.time,
+      'isAvailable': instance.isAvailable,
+      'id': instance.id,
     };

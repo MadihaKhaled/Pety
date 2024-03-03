@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pety/features/search_vet/search_for_vet/cubit/search_vet_cubit.dart';
-import 'package:pety/features/search_vet/search_for_vet/cubit/search_vet_states.dart';
+import 'package:pety/features/search_vet/cubit/search_vet_cubit.dart';
+import 'package:pety/features/search_vet/cubit/search_vet_states.dart';
 import 'package:pety/shared/network/remote/api_constants.dart';
 import 'package:pety/shared/styles/texts.dart';
 
@@ -21,7 +21,7 @@ class FromUpperToLower extends StatelessWidget {
         builder: (context, state) {
           final SearchVetCubit cubit = context.read<SearchVetCubit>();
           return Visibility(
-            visible: cubit.sort!=SortBy.offer,
+            visible: cubit.sort!=SortByConstants.offer,
             child: Row(
               children: [
                 Text(

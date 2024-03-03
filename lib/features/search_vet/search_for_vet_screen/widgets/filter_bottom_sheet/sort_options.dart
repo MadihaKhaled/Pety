@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pety/features/search_vet/search_for_vet/cubit/search_vet_cubit.dart';
-import 'package:pety/features/search_vet/search_for_vet/cubit/search_vet_states.dart';
+import 'package:pety/features/search_vet/cubit/search_vet_cubit.dart';
+import 'package:pety/features/search_vet/cubit/search_vet_states.dart';
 import 'package:pety/shared/network/remote/api_constants.dart';
 import 'package:pety/shared/styles/texts.dart';
 import 'package:pety/shared/widgets/default_radio_button.dart';
@@ -29,9 +29,9 @@ class SortOptions extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 16.h),
           child: Row(
             children: [
-              Expanded(child: sortByItem('Rate', SortBy.rate)),
-              Expanded(child: sortByItem('Price', SortBy.price)),
-              Expanded(child: sortByItem('Offers', SortBy.offer)),
+              Expanded(child: sortByItem('Rate', SortByConstants.rate)),
+              Expanded(child: sortByItem('Price', SortByConstants.price)),
+              Expanded(child: sortByItem('Offers', SortByConstants.offer)),
             ],
           ),
         ),
