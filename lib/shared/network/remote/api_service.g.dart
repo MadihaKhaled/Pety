@@ -97,7 +97,7 @@ class _ApiService implements ApiService {
       r'sort': sort,
       r'minPrice': minPrice,
       r'maxPrice': maxPrice,
-      r'avalability': availability,
+      r'availability': availability,
       r'petyName': petyName,
       r'offer': offer,
       r'animals': animals,
@@ -124,6 +124,38 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = SearchVetsResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<BookVetResponse> bookVet(
+    BookVetBody bookVetBody,
+    String token,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(bookVetBody.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<BookVetResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/pety/appointment',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = BookVetResponse.fromJson(_result.data!);
     return value;
   }
 

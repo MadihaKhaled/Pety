@@ -4,7 +4,10 @@ class ApiConstants{
   static const String login = 'api/users/signin';
   static const String register = 'api/users/signup';
   static const String searchVet = '/api/pety?';
+  static const String bookVet = '/api/pety/appointment';
 }
+
+
 
 class ApiErrors {
   static const String badRequestError = "badRequestError";
@@ -24,23 +27,23 @@ class ApiErrors {
   static const String ok = "Ok";
 }
 
-class PetyRoles{
+class PetyRolesConstants{
   static const String vet = 'vet';
 }
 
-class Animals{
+class AnimalsConstants{
   static const String dog = 'dog';
   static const String cat = 'cat';
 }
 
-class SortBy{
+class SortByConstants{
   static const String offer = 'offer';
   static const String rate = 'averageRate';
   static const String price = 'price';
 }
 
-class Availability{
+class AvailabilityConstants{
   static const String today = 'today';
   static const String tomorrow = 'tomorrow';
-  static const String anyDay = 'any day';
+  static const String anyDay = 'anyDay';
 }

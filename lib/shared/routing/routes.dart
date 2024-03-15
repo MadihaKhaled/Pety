@@ -4,4 +4,6 @@ class Routes{
   static const String registerScreen = '/register';
   static const String petLayout = '/pet_layout';
   static const String searchForVet = '/search_for_vet';
+  static const String vetDetails = '/vet_details';
+  static const String bookVet = '/book_vet';
 }

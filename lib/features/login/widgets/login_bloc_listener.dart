@@ -9,6 +9,7 @@ import 'package:pety/shared/network/local/shared_pred_constants.dart';
 import 'package:pety/shared/network/local/shared_pref_helper.dart';
 import 'package:pety/shared/routing/routes.dart';
 import 'package:pety/shared/styles/texts.dart';
+import 'package:pety/shared/widget_functions.dart';
 
 class LoginBlocListener extends StatelessWidget{
   const LoginBlocListener({super.key});
@@ -38,7 +39,7 @@ class LoginBlocListener extends StatelessWidget{
               ).then((value) => context.pushNamedAndRemoveUntil(Routes.petLayout, predicate: (Route<dynamic> route) => false));
             },
             error: (error){
-              setupErrorState(context, error);
+              WidgetFunctions.setupErrorState(context, error);
             }
         );
       },
@@ -46,33 +47,5 @@ class LoginBlocListener extends StatelessWidget{
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
-    context.pop();
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        icon: const Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32,
-        ),
-        content: Text(
-          error,
-          style: TextStyles.font16BlackRegular,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              context.pop();
-            },
-            child: Text(
-              'Got it',
-              style: TextStyles.font14DefaultRegular,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
 }
