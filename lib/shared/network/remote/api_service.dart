@@ -7,8 +7,6 @@ import 'package:pety/features/register/data/models/register_response.dart';
 import 'package:pety/features/search_vet/book_vet_screen/data/models/book_vet_body.dart';
 import 'package:pety/features/search_vet/book_vet_screen/data/models/book_vet_response.dart';
 import 'package:pety/features/search_vet/data/models/search_vets_response.dart';
-import 'package:pety/shared/network/local/shared_pred_constants.dart';
-import 'package:pety/shared/network/local/shared_pref_helper.dart';
 import 'package:pety/shared/network/remote/api_constants.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -44,8 +42,8 @@ abstract class ApiService {
 
   @POST(ApiConstants.bookVet)
   Future<BookVetResponse> bookVet(
-      @Body() BookVetBody bookVetBody,
-      @Header('Authorization') String token,
+    @Body() BookVetBody bookVetBody,
+    @Header('Authorization') String token,
   );
 
 

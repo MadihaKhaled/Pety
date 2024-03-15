@@ -173,7 +173,6 @@ class SearchVetCubit extends Cubit<SearchVetStates> {
   void onBackPressed(BuildContext context){
     emit(const SearchVetStates.loading());
     context.pop();
-    //chosenVet = null;
     clickedAppointment=-1;
     emit(const SearchVetStates.moveToPrevScreen());
   }

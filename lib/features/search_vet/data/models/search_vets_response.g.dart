@@ -21,7 +21,7 @@ Map<String, dynamic> _$SearchVetsResponseToJson(SearchVetsResponse instance) =>
     };
 
 Data _$DataFromJson(Map<String, dynamic> json) => Data(
-      id: json['id'] as String?,
+      id: json['_id'] as String?,
       petyName: json['petyName'] as String?,
       clinicalName: json['clinicalName'] as String?,
       address: json['address'] as String?,
@@ -41,7 +41,7 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
     );
 
 Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'petyName': instance.petyName,
       'clinicalName': instance.clinicalName,
       'address': instance.address,

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pety/features/search_vet/book_vet_screen/widgets/book_vet_bloc_listener.dart';
 import 'package:pety/features/search_vet/book_vet_screen/widgets/fees_location_calendar.dart';
 import 'package:pety/features/search_vet/cubit/search_vet_cubit.dart';
 import 'package:pety/features/search_vet/widgets/vet_card_details.dart';
@@ -48,6 +49,7 @@ class BookVetScreen extends StatelessWidget{
                 radius: 8,
               ),
             ),
+            const BookVetBlocListener(),
           ],
         ),
       ),

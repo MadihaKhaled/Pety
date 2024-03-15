@@ -23,10 +23,10 @@ class VetDetailsScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     final cubit = context.read<SearchVetCubit>();
     return PopScope(
-      onPopInvoked: (value) {
-        if(value){
-          cubit.onBackPressed(context);
-        }
+      canPop: false,
+      onPopInvoked: (didPop){
+        if(didPop)return;
+        cubit.onBackPressed(context);
       },
       child: Scaffold(
         appBar: AppBar(

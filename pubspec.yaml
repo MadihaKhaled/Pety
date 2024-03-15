@@ -52,6 +52,7 @@ dependencies:
   get_it: ^7.6.7
   conditional_builder_null_safety: ^0.0.6
   intl: ^0.19.0
+  fluttertoast: ^8.2.4
 
 
 dev_dependencies:

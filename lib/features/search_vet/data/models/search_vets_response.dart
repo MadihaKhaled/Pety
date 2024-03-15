@@ -20,6 +20,8 @@ class SearchVetsResponse {
 @JsonSerializable()
 class Data {
 
+
+  @JsonKey(name: '_id')
   String? id;
   String? petyName;
   String? clinicalName;

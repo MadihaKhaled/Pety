@@ -55,7 +55,9 @@ class SearchVetRepository{
   Future<ApiResult<BookVetResponse>> bookVet({required BookVetBody bookVetBody}) async{
     try{
       final BookVetResponse response = await _apiService.bookVet(
-        bookVetBody,SharedPrefHelper.getData(key: SharedPrefConstants.tokenKey));
+        bookVetBody,
+        'Bearer ${SharedPrefHelper.getData(key: SharedPrefConstants.tokenKey)}'
+      );
       return ApiResult.success(response);
     }catch(error){
       return ApiResult.failure(ErrorHandler.handle(error));
