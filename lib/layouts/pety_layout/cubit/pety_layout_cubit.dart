@@ -37,8 +37,9 @@ class PetLayoutCubit extends Cubit<PetLayoutStates>{
         ),
       label: 'Home',
     ),
-    BottomNavigationBarItem(
-        icon: SvgPicture.asset('assets/svgs/pet_profile.svg',width: 30.w,height: 30.h,color: ColorManager.defaultColor,),
+    const BottomNavigationBarItem(
+        icon: Icon(Icons.chat_bubble_outline,size: 30,),
+        //icon: SvgPicture.asset('assets/svgs/pet_profile.svg',width: 30.w,height: 30.h,color: ColorManager.defaultColor,),
         label: 'Community'
     ),
     BottomNavigationBarItem(
