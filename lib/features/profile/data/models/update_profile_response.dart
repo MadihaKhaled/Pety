@@ -1,41 +1,38 @@
-class LoginResponse {
-  LoginResponse({
+class UpdateProfileResponse {
+  UpdateProfileResponse({
       this.status, 
-      this.token, 
-      this.data,});
+      this.user,});
 
-  LoginResponse.fromJson(dynamic json) {
+  UpdateProfileResponse.fromJson(dynamic json) {
     status = json['status'];
-    token = json['token'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    user = json['user'] != null ? User.fromJson(json['user']) : null;
   }
   String? status;
-  String? token;
-  Data? data;
+  User? user;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['status'] = status;
-    map['token'] = token;
-    if (data != null) {
-      map['data'] = data?.toJson();
+    if (user != null) {
+      map['user'] = user?.toJson();
     }
     return map;
   }
 
 }
 
-class Data {
-  Data({
+class User {
+  User({
       this.photo, 
       this.id, 
       this.firstName, 
       this.lastName, 
       this.email, 
       this.password, 
-      this.phone,});
+      this.phone, 
+      this.v,});
 
-  Data.fromJson(dynamic json) {
+  User.fromJson(dynamic json) {
     photo = json['photo'] != null ? Photo.fromJson(json['photo']) : null;
     id = json['_id'];
     firstName = json['firstName'];
@@ -43,6 +40,7 @@ class Data {
     email = json['email'];
     password = json['password'];
     phone = json['phone'];
+    v = json['__v'];
   }
   Photo? photo;
   String? id;
@@ -51,6 +49,7 @@ class Data {
   String? email;
   String? password;
   String? phone;
+  num? v;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -63,6 +62,7 @@ class Data {
     map['email'] = email;
     map['password'] = password;
     map['phone'] = phone;
+    map['__v'] = v;
     return map;
   }
 

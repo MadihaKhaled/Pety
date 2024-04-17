@@ -1,4 +1,6 @@
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pety/features/register/cubit/register_cubit.dart';
@@ -36,6 +38,10 @@ class RegisterBlocListener extends StatelessWidget{
               SharedPrefHelper.saveData(
                   key: SharedPrefConstants.tokenKey,
                   value: (data as RegisterResponse).token
+              );
+              SharedPrefHelper.saveData(
+                  key: SharedPrefConstants.userData,
+                  value: jsonEncode(data.data!.toJson())
               ).then((value) => context.pushNamedAndRemoveUntil(Routes.petLayout, predicate: (Route<dynamic> route) => false));
             },
             error: (error){

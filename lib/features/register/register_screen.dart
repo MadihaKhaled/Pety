@@ -19,15 +19,15 @@ import 'package:pety/shared/styles/texts.dart';
 import '../../shared/widgets/text_button.dart';
 
 class RegisterScreen extends StatelessWidget{
-  RegisterScreen({super.key});
+  const RegisterScreen({super.key});
 
-  TextEditingController firstNameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confPasswordController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  static final TextEditingController firstNameController = TextEditingController();
+  static final TextEditingController lastNameController = TextEditingController();
+  static final TextEditingController emailController = TextEditingController();
+  static final TextEditingController passwordController = TextEditingController();
+  static final TextEditingController confPasswordController = TextEditingController();
+  static final TextEditingController phoneController = TextEditingController();
+  static final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {

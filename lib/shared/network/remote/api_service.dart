@@ -1,7 +1,11 @@
 
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:pety/features/login/data/models/login_request_body.dart';
 import 'package:pety/features/login/data/models/login_response.dart';
+import 'package:pety/features/profile/data/models/update_profile_body.dart';
+import 'package:pety/features/profile/data/models/update_profile_response.dart';
 import 'package:pety/features/register/data/models/register_request_body.dart';
 import 'package:pety/features/register/data/models/register_response.dart';
 import 'package:pety/features/search_vet/book_vet_screen/data/models/book_vet_body.dart';
@@ -46,5 +50,10 @@ abstract class ApiService {
     @Header('Authorization') String token,
   );
 
+  @PATCH(ApiConstants.updateProfile)
+  Future<UpdateProfileResponse> updateProfile(
+    @Body() FormData profileBody,
+    @Header('Authorization') String token,
+  );
 
 }

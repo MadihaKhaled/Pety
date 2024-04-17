@@ -1,47 +1,94 @@
-
-
-import 'package:json_annotation/json_annotation.dart';
-
-part 'register_response.g.dart';
-
-@JsonSerializable()
 class RegisterResponse {
+  RegisterResponse({
+      this.status, 
+      this.token, 
+      this.data,});
 
+  RegisterResponse.fromJson(dynamic json) {
+    status = json['status'];
+    token = json['token'];
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+  }
   String? status;
   String? token;
   Data? data;
 
-  RegisterResponse({
-      this.status, 
-      this.token, 
-      this.data,
-  });
-
-  factory RegisterResponse.fromJson(Map<String, dynamic> json) => _$RegisterResponseFromJson(json);
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['status'] = status;
+    map['token'] = token;
+    if (data != null) {
+      map['data'] = data?.toJson();
+    }
+    return map;
+  }
 
 }
 
-@JsonSerializable()
 class Data {
-
-  String? firstName;
-  String? lastName;
-  String? email;
-  String? password;
-  String? phone;
-  String? id;
-  num? v;
-
   Data({
       this.firstName, 
       this.lastName, 
       this.email, 
       this.password, 
       this.phone, 
+      this.photo, 
       this.id, 
-      this.v,
-  });
+      this.v,});
 
-  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
+  Data.fromJson(dynamic json) {
+    firstName = json['firstName'];
+    lastName = json['lastName'];
+    email = json['email'];
+    password = json['password'];
+    phone = json['phone'];
+    photo = json['photo'] != null ? Photo.fromJson(json['photo']) : null;
+    id = json['_id'];
+    v = json['__v'];
+  }
+  String? firstName;
+  String? lastName;
+  String? email;
+  String? password;
+  String? phone;
+  Photo? photo;
+  String? id;
+  num? v;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['firstName'] = firstName;
+    map['lastName'] = lastName;
+    map['email'] = email;
+    map['password'] = password;
+    map['phone'] = phone;
+    if (photo != null) {
+      map['photo'] = photo?.toJson();
+    }
+    map['_id'] = id;
+    map['__v'] = v;
+    return map;
+  }
+
+}
+
+class Photo {
+  Photo({
+      this.url, 
+      this.publicId,});
+
+  Photo.fromJson(dynamic json) {
+    url = json['url'];
+    publicId = json['public_id'];
+  }
+  String? url;
+  String? publicId;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['url'] = url;
+    map['public_id'] = publicId;
+    return map;
+  }
 
 }
