@@ -18,11 +18,11 @@ import 'package:pety/shared/styles/texts.dart';
 
 class LoginScreen extends StatelessWidget{
 
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  var formKey = GlobalKey<FormState>();
+  static final TextEditingController emailController = TextEditingController();
+  static final TextEditingController passwordController = TextEditingController();
+  static final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {

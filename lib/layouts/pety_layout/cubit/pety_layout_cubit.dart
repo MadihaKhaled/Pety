@@ -20,7 +20,7 @@ class PetLayoutCubit extends Cubit<PetLayoutStates>{
   List<Widget> screens = [
     const HomeScreen(),
     const CommunityScreen(),
-    const ProfileScreen()
+    ProfileScreen()
   ];
 
   List<BottomNavigationBarItem> bottomItems = [
@@ -67,8 +67,37 @@ class PetLayoutCubit extends Cubit<PetLayoutStates>{
         )
       ],
     ),
-    AppBar(),
-    AppBar(),
+    AppBar(
+      automaticallyImplyLeading: false,
+      backgroundColor: ColorManager.homeBackground,
+      title: const Row(
+        children: [
+          Icon(Icons.arrow_back_ios_new),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Community'),
+              ],
+            ),
+          )
+        ],
+      ),
+    ),
+    AppBar(
+      automaticallyImplyLeading: false,
+      backgroundColor: ColorManager.homeBackground,
+      /*leading: const Padding(
+        padding: EdgeInsets.only(left: 5.0),
+        child: Icon(Icons.arrow_back_ios_new),
+      ),*/
+      title: const Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Profile'),
+        ],
+      ),
+    ),
   ];
 
   List<JobListItem> jobsList = [

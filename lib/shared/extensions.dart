@@ -25,4 +25,5 @@ extension Regex on String{
     RegExp regex = RegExp(r"(.|\s)*\S(.|\s)*", multiLine: true);
     return regex.hasMatch(this);
   }
+
 }

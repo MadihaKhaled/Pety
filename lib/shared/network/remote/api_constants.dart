@@ -5,6 +5,7 @@ class ApiConstants{
   static const String register = 'api/users/signup';
   static const String searchVet = '/api/pety?';
   static const String bookVet = '/api/pety/appointment';
+  static const String updateProfile = '/api/users/updateMe';
 }
 
 
