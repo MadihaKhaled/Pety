@@ -3,9 +3,16 @@ class ApiConstants{
   static const String apiBaseUrl = 'https://petcare-znql.onrender.com/';//'http://127.0.0.1:3000/';
   static const String login = 'api/users/signin';
   static const String register = 'api/users/signup';
-  static const String searchVet = '/api/pety?';
-  static const String bookVet = '/api/pety/appointment';
-  static const String updateProfile = '/api/users/updateMe';
+  static const String searchVet = 'api/pety?';
+  static const String bookVet = 'api/pety/appointment';
+  static const String updateProfile = 'api/users/updateMe';
+  static const String dashboardGetAppointments = 'api/dashboard/allAppointments';
+  static const String dashboardPetyInformation = 'api/dashboard/petyInformation';
+  static const String dashboardChangeAppointmentStatus = 'api/dashboard/changeAppointment';
+  static const String dashboardUpdatePetyData = 'api/dashboard/updatePety';
+  static const String dashboardTimeTable = 'api/dashboard/timeTable';
+  static const String dashboardGetWorkHours = 'api/dashboard/workingHours';
+  static const String dashboardGetAllRoles = 'api/dashboard/allRoles';
 }
 
 

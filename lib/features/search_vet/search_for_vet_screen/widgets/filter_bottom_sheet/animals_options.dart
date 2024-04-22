@@ -28,7 +28,6 @@ class AnimalsOptions extends StatelessWidget {
             gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 100.w),
             itemCount: cubitContext.read<SearchVetCubit>().animals.length,
             itemBuilder: (BuildContext context, int index) {
-
               return Row(
                 children: [
                   BlocProvider.value(

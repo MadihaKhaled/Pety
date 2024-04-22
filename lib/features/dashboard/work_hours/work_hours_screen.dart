@@ -1,14 +1,15 @@
 
 import 'package:flutter/material.dart';
 
-class AppointmentsScreen extends StatelessWidget{
-  const AppointmentsScreen({super.key});
+class WorkHoursScreen extends StatelessWidget{
+  String role;
+  WorkHoursScreen({super.key,required this.role});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        Center(child: Text('Appointments'),)
+        Center(child: Text(role),)
       ],
     );
   }

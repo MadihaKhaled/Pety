@@ -29,13 +29,6 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal:10.w,vertical: 10.h),
               child: Column(
                 children: [
-                  /*GestureDetector(
-                    onTap: (){
-                      context.pushNamed(Routes.searchForVet);
-                    },
-                    child: const DefaultSearch(text: 'Book a vet appointment',),
-                  ),*/
-                  //SizedBox(height: 30.h,),
                   JobsList(cubit: cubit),
                   SizedBox(height: 30.h,),
                   const KnowAboutCommunity(),

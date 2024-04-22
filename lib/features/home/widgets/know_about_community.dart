@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pety/shared/extensions.dart';
+import 'package:pety/shared/routing/routes.dart';
 import 'package:pety/shared/styles/colors.dart';
 import 'package:pety/shared/styles/texts.dart';
 import 'package:pety/shared/widgets/default_button.dart';
@@ -42,7 +44,9 @@ class KnowAboutCommunity extends StatelessWidget{
                 text: 'community',
                 color: ColorManager.orange,
                 textStyle: TextStyles.font14WhiteRegular,
-                onClick: (){}
+                onClick: (){
+                  context.pushNamed(Routes.dashboardRoles);
+                }
               )
             ],
           ),
