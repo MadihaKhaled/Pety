@@ -1,5 +1,10 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pety/features/dashboard/dashboard_layout/dashboard_layout.dart';
+import 'package:pety/features/dashboard/roles/roles_screen.dart';
+import 'package:pety/features/dashboard/shared/cubit/dashobard_cubit.dart';
 import 'package:pety/features/login/cubit/login_cubit.dart';
 import 'package:pety/features/login/login_screen.dart';
 import 'package:pety/features/register/cubit/register_cubit.dart';
@@ -21,7 +26,7 @@ class AppRouter {
           builder: (_) =>
               BlocProvider(
                 create: (context) => getIt<LoginCubit>(),
-                child: LoginScreen(),
+                child: const LoginScreen(),
               ),
         );
       case Routes.registerScreen :
@@ -29,7 +34,7 @@ class AppRouter {
           builder: (_) =>
               BlocProvider(
                 create: (context) => getIt<RegisterCubit>(),
-                child: RegisterScreen(),
+                child: const RegisterScreen(),
               ),
         );
       case Routes.petLayout :
@@ -65,6 +70,27 @@ class AppRouter {
                 value: BlocProvider.of<SearchVetCubit>(settings.arguments as BuildContext),
               child: const BookVetScreen()
           ),
+        );
+      case Routes.dashboardRoles :
+        return MaterialPageRoute(
+          builder: (_) =>
+              BlocProvider(
+                create: (context) =>
+                getIt<DashboardCubit>()
+                  ..getPetyRoles(),
+                child: const RolesScreen(),
+              ),
+        );
+      case Routes.dashboardLayout :
+        Map<String,dynamic> mp = settings.arguments as Map<String,dynamic>;
+        BuildContext cubitContext = mp['cubitContext'];
+        String role = mp['petRole'];
+        return MaterialPageRoute(
+          builder: (_) =>
+              BlocProvider.value(
+                  value: BlocProvider.of<DashboardCubit>(cubitContext),
+                  child: DashboardLayout(role: role,)
+              ),
         );
       default :
         return MaterialPageRoute(

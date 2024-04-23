@@ -37,21 +37,19 @@ class Data {
       this.endTime, 
       this.sessionDuration, 
       this.id, 
-      this.id,});
+      });
 
   Data.fromJson(dynamic json) {
     day = json['day'];
     startTime = json['startTime'];
     endTime = json['endTime'];
     sessionDuration = json['sessionDuration'];
-    id = json['_id'];
     id = json['id'];
   }
   String? day;
   String? startTime;
   String? endTime;
   String? sessionDuration;
-  String? id;
   String? id;
 
   Map<String, dynamic> toJson() {
@@ -60,7 +58,6 @@ class Data {
     map['startTime'] = startTime;
     map['endTime'] = endTime;
     map['sessionDuration'] = sessionDuration;
-    map['_id'] = id;
     map['id'] = id;
     return map;
   }

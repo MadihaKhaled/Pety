@@ -2,6 +2,17 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:pety/features/dashboard/appointments/models/appointment_status_body.dart';
+import 'package:pety/features/dashboard/appointments/models/appointment_status_response.dart';
+import 'package:pety/features/dashboard/appointments/models/appointments_body.dart';
+import 'package:pety/features/dashboard/appointments/models/appointments_response.dart';
+import 'package:pety/features/dashboard/pety_information/models/pety_information_response.dart';
+import 'package:pety/features/dashboard/pety_information/models/update_pety_data_response.dart';
+import 'package:pety/features/dashboard/shared/data/models/all_roles_response.dart';
+import 'package:pety/features/dashboard/work_hours/models/get_work_hours_body.dart';
+import 'package:pety/features/dashboard/work_hours/models/get_work_hours_response.dart';
+import 'package:pety/features/dashboard/work_hours/models/work_hours_body.dart';
+import 'package:pety/features/dashboard/work_hours/models/work_hours_response.dart';
 import 'package:pety/features/login/data/models/login_request_body.dart';
 import 'package:pety/features/login/data/models/login_response.dart';
 import 'package:pety/features/profile/data/models/update_profile_body.dart';
@@ -54,6 +65,46 @@ abstract class ApiService {
   Future<UpdateProfileResponse> updateProfile(
     @Body() FormData profileBody,
     @Header('Authorization') String token,
+  );
+
+  @GET(ApiConstants.dashboardGetAppointments)
+  Future<AppointmentsResponse> getAppointmentsDashboard(
+      @Body() AppointmentsBody appointmentsBody,
+      @Header('Authorization') String token,
+  );
+
+  @PATCH(ApiConstants.dashboardChangeAppointmentStatus)
+  Future<AppointmentStatusResponse> changeAppointmentStatus(
+      @Body() AppointmentStatusBody appointmentStatusBody,
+      @Header('Authorization') String token,
+  );
+
+  @GET(ApiConstants.dashboardPetyInformation)
+  Future<PetyInformationResponse> petyInformation(
+      @Header('Authorization') String token,
+  );
+
+  @PATCH(ApiConstants.dashboardUpdatePetyData)
+  Future<UpdatePetyDataResponse> updatePetyData(
+      @Body() FormData petyData,
+      @Header('Authorization') String token,
+  );
+
+  @POST(ApiConstants.dashboardTimeTable)
+  Future<WorkHoursResponse> addWorkHours(
+      @Body() WorkHoursBody workHoursBody,
+      @Header('Authorization') String token,
+  );
+
+  @POST(ApiConstants.dashboardGetWorkHours)
+  Future<GetWorkHoursResponse> getWorkHours(
+      @Body() GetWorkHoursBody getWorkHoursBody,
+      @Header('Authorization') String token,
+  );
+
+  @GET(ApiConstants.dashboardGetAllRoles)
+  Future<AllRolesResponse> getPetyRoles(
+      @Header('Authorization') String token,
   );
 
 }

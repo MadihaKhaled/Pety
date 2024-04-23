@@ -2,6 +2,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pety/features/dashboard/shared/cubit/dashobard_cubit.dart';
+import 'package:pety/features/dashboard/shared/data/repository/dashboard_repository.dart';
 import 'package:pety/features/login/cubit/login_cubit.dart';
 import 'package:pety/features/login/data/repository/login_repo.dart';
 import 'package:pety/features/profile/cubit/profile_cubit.dart';
@@ -36,6 +38,10 @@ Future<void> setupGetIt() async{
   // update profile
   getIt.registerLazySingleton<ProfileRepository>(() => ProfileRepository(getIt(),ImagePicker()));
   getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
+
+  // dashboard
+  getIt.registerLazySingleton<DashboardRepository>(() => DashboardRepository(getIt()));
+  getIt.registerFactory<DashboardCubit>(() => DashboardCubit(getIt()));
 
   //Pet Layout
 

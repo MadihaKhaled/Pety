@@ -42,11 +42,10 @@ class Data {
       this.availabilityFormatted, 
       this.v, 
       this.lastUpdated, 
-      this.id,});
+      });
 
   Data.fromJson(dynamic json) {
     location = json['location'] != null ? Location.fromJson(json['location']) : null;
-    id = json['_id'];
     userId = json['userId'];
     petyName = json['petyName'];
     clinicalName = json['clinicalName'];
@@ -95,14 +94,12 @@ class Data {
   List<AvailabilityFormatted>? availabilityFormatted;
   num? v;
   String? lastUpdated;
-  String? id;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     if (location != null) {
       map['location'] = location?.toJson();
     }
-    map['_id'] = id;
     map['userId'] = userId;
     map['petyName'] = petyName;
     map['clinicalName'] = clinicalName;
@@ -135,7 +132,7 @@ class AvailabilityFormatted {
       this.date, 
       this.appointments, 
       this.id, 
-      this.id,});
+      });
 
   AvailabilityFormatted.fromJson(dynamic json) {
     date = json['date'];
@@ -145,12 +142,10 @@ class AvailabilityFormatted {
         appointments?.add(Appointments.fromJson(v));
       });
     }
-    id = json['_id'];
     id = json['id'];
   }
   String? date;
   List<Appointments>? appointments;
-  String? id;
   String? id;
 
   Map<String, dynamic> toJson() {
@@ -159,7 +154,6 @@ class AvailabilityFormatted {
     if (appointments != null) {
       map['appointments'] = appointments?.map((v) => v.toJson()).toList();
     }
-    map['_id'] = id;
     map['id'] = id;
     return map;
   }
@@ -198,21 +192,19 @@ class Availability {
       this.endTime, 
       this.sessionDuration, 
       this.id, 
-      this.id,});
+      });
 
   Availability.fromJson(dynamic json) {
     day = json['day'];
     startTime = json['startTime'];
     endTime = json['endTime'];
     sessionDuration = json['sessionDuration'];
-    id = json['_id'];
     id = json['id'];
   }
   String? day;
   String? startTime;
   String? endTime;
   String? sessionDuration;
-  String? id;
   String? id;
 
   Map<String, dynamic> toJson() {
@@ -221,7 +213,6 @@ class Availability {
     map['startTime'] = startTime;
     map['endTime'] = endTime;
     map['sessionDuration'] = sessionDuration;
-    map['_id'] = id;
     map['id'] = id;
     return map;
   }

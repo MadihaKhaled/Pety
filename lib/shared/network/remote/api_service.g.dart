@@ -114,7 +114,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              '/api/pety?',
+              'api/pety?',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -146,7 +146,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              '/api/pety/appointment',
+              'api/pety/appointment',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -177,7 +177,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              '/api/users/updateMe',
+              'api/users/updateMe',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -187,6 +187,221 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = UpdateProfileResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<AppointmentsResponse> getAppointmentsDashboard(
+    AppointmentsBody appointmentsBody,
+    String token,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(appointmentsBody.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AppointmentsResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/dashboard/allAppointments',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AppointmentsResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<AppointmentStatusResponse> changeAppointmentStatus(
+    AppointmentStatusBody appointmentStatusBody,
+    String token,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(appointmentStatusBody.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AppointmentStatusResponse>(Options(
+      method: 'PATCH',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/dashboard/changeAppointment',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AppointmentStatusResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<PetyInformationResponse> petyInformation(String token) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<PetyInformationResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/dashboard/petyInformation',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = PetyInformationResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<UpdatePetyDataResponse> updatePetyData(
+    FormData petyData,
+    String token,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = petyData;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<UpdatePetyDataResponse>(Options(
+      method: 'PATCH',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/dashboard/updatePety',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = UpdatePetyDataResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<WorkHoursResponse> addWorkHours(
+    WorkHoursBody workHoursBody,
+    String token,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(workHoursBody.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<WorkHoursResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/dashboard/timeTable',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = WorkHoursResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<GetWorkHoursResponse> getWorkHours(
+    GetWorkHoursBody getWorkHoursBody,
+    String token,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(getWorkHoursBody.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<GetWorkHoursResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/dashboard/workingHours',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = GetWorkHoursResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<AllRolesResponse> getPetyRoles(String token) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<AllRolesResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/dashboard/allRoles',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AllRolesResponse.fromJson(_result.data!);
     return value;
   }
 
