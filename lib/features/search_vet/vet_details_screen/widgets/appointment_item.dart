@@ -20,7 +20,7 @@ class AppointmentItem extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     SearchVetCubit cubit = context.read<SearchVetCubit>();
-    AvailabilityFormatted item = cubit.chosenVet!.availabilityFormatted![index];
+    final item = cubit.chosenVet!.availabilityFormatted![index];
     return SizedBox(
       width: 45.w,
       child: Card(

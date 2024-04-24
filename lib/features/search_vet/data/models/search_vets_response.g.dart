@@ -32,7 +32,7 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
       description: json['description'] as String?,
       role: json['role'] as String?,
       email: json['email'] as String?,
-      averageRate: json['averageRate'] as num?,
+      ratingsAverage: json['ratingsAverage'] as num?,
       offer: json['offer'] as bool?,
       availabilityFormatted: (json['availabilityFormatted'] as List<dynamic>?)
           ?.map(
@@ -51,7 +51,7 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'description': instance.description,
       'role': instance.role,
       'email': instance.email,
-      'averageRate': instance.averageRate,
+      'ratingsAverage': instance.ratingsAverage,
       'offer': instance.offer,
       'availabilityFormatted': instance.availabilityFormatted,
     };

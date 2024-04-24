@@ -46,9 +46,9 @@ class VetCardDetails extends StatelessWidget{
                 ),
                 Row(
                   children: [
-                    DefaultRatingIndicator(rate: cubit.chosenVet!.averageRate!.toDouble(),),
+                    DefaultRatingIndicator(rate: cubit.chosenVet!.ratingsAverage!.toDouble(),),
                     const HorizontalSpace(width: 3),
-                    Text(cubit.chosenVet!.averageRate!.toString(),style: TextStyles.font12LightGreyRegular),
+                    Text(cubit.chosenVet!.ratingsAverage!.toString(),style: TextStyles.font12LightGreyRegular),
                   ],
                 ),
                 Text(

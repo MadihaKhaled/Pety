@@ -27,19 +27,24 @@ class RolesScreen extends StatelessWidget {
               return const Center(
                 child: Text('You have no role.')
               );
-            } else if (state is Success) {
+            } else if (state is Error) {
+              return Center(
+                child: Text('Error: ${state.error}'),
+              );
+            } else{
+              DashboardCubit cubit = context.read<DashboardCubit>();
               return Column(
                 children: [
                   Expanded(
                     child: GridView.builder(
                       scrollDirection: Axis.vertical,
-                      itemCount: state.data.data.length,
+                      itemCount: cubit.roles!.length,
                       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: (MediaQuery.of(context).size.width) / 2,
-                        crossAxisSpacing: 10.w
+                          maxCrossAxisExtent: (MediaQuery.of(context).size.width) / 2,
+                          crossAxisSpacing: 10.w
                       ),
                       itemBuilder: (BuildContext context, int index) {
-                        String role = state.data.data[index];
+                        String role = cubit.roles![index];
                         String image = 'pet_sitter.png';
                         if(role=='vet') {
                           image='pet_vet.png';
@@ -49,8 +54,8 @@ class RolesScreen extends StatelessWidget {
 
                         return Container(
                           decoration: BoxDecoration(
-                            color: ColorManager.orange,
-                            borderRadius: BorderRadius.circular(15)
+                              color: ColorManager.orange,
+                              borderRadius: BorderRadius.circular(15)
                           ),
                           child: InkWell(
                             onTap: (){
@@ -78,13 +83,8 @@ class RolesScreen extends StatelessWidget {
                   ),
                 ],
               );
-            } else if (state is Error) {
-              return Center(
-                child: Text('Error: ${state.error}'),
-              );
-            }else{
-              return const Center();
             }
+
           },
         ),
       ),

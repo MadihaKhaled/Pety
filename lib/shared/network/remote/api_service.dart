@@ -67,7 +67,7 @@ abstract class ApiService {
     @Header('Authorization') String token,
   );
 
-  @GET(ApiConstants.dashboardGetAppointments)
+  @POST(ApiConstants.dashboardGetAppointments)
   Future<AppointmentsResponse> getAppointmentsDashboard(
       @Body() AppointmentsBody appointmentsBody,
       @Header('Authorization') String token,

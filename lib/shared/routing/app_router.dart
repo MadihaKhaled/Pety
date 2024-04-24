@@ -46,12 +46,13 @@ class AppRouter {
               ),
         );
       case Routes.searchForVet :
+        String role = settings.arguments as String;
         return MaterialPageRoute(
           builder: (_) =>
               BlocProvider(
                 create: (context) =>
                 getIt<SearchVetCubit>()
-                  ..getVets(),
+                  ..getVets(role: role),
                 child: const SearchForVet(),
               ),
         );
@@ -88,7 +89,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) =>
               BlocProvider.value(
-                  value: BlocProvider.of<DashboardCubit>(cubitContext),
+                  value: BlocProvider.of<DashboardCubit>(cubitContext)..getAllAppointments(role),
                   child: DashboardLayout(role: role,)
               ),
         );

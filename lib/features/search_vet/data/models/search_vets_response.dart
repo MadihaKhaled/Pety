@@ -9,8 +9,8 @@ class SearchVetsResponse {
   List<Data>? data;
 
   SearchVetsResponse({
-      this.status, 
-      this.data,
+    this.status,
+    this.data,
   });
 
   factory SearchVetsResponse.fromJson(Map<String, dynamic> json) => _$SearchVetsResponseFromJson(json);
@@ -19,8 +19,6 @@ class SearchVetsResponse {
 
 @JsonSerializable()
 class Data {
-
-
   @JsonKey(name: '_id')
   String? id;
   String? petyName;
@@ -32,7 +30,7 @@ class Data {
   String? description;
   String? role;
   String? email;
-  num? averageRate;
+  num? ratingsAverage;
   bool? offer;
   List<AvailabilityFormatted>? availabilityFormatted;
 
@@ -47,7 +45,7 @@ class Data {
     this.description,
     this.role,
     this.email,
-    this.averageRate,
+    this.ratingsAverage,
     this.offer,
     this.availabilityFormatted,
   });

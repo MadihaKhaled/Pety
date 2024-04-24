@@ -25,6 +25,7 @@ class PetyApp extends StatelessWidget {
         return MaterialApp(
           theme: lightTheme,
           debugShowCheckedModeBanner: false,
+          scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
           initialRoute: initialRoute,
           onGenerateRoute: appRouter.generateRoute,
         );

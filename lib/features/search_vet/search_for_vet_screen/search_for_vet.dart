@@ -18,6 +18,7 @@ import 'package:pety/shared/widgets/default_search.dart';
 import 'package:pety/shared/widgets/vertical_space.dart';
 
 class SearchForVet extends StatefulWidget {
+
   const SearchForVet({super.key});
 
   @override

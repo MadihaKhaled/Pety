@@ -15,7 +15,7 @@ class AppointmentsResponse {
     }
   }
   String? status;
-  num? results;
+  int? results;
   List<Data>? data;
 
   Map<String, dynamic> toJson() {
@@ -34,10 +34,7 @@ class Data {
   Data({
       this.id, 
       this.petyID, 
-      this.ownerID, 
-      this.firstName, 
-      this.lastName, 
-      this.phone, 
+      this.owner, 
       this.animals, 
       this.appointmentDateTime, 
       this.date, 
@@ -48,10 +45,7 @@ class Data {
   Data.fromJson(dynamic json) {
     id = json['_id'];
     petyID = json['petyID'];
-    ownerID = json['ownerID'];
-    firstName = json['firstName'];
-    lastName = json['lastName'];
-    phone = json['phone'];
+    owner = json['owner'] != null ? Owner.fromJson(json['owner']) : null;
     if (json['animals'] != null) {
       animals = [];
       json['animals'].forEach((v) {
@@ -66,10 +60,7 @@ class Data {
   }
   String? id;
   String? petyID;
-  String? ownerID;
-  String? firstName;
-  String? lastName;
-  String? phone;
+  Owner? owner;
   List<Animals>? animals;
   String? appointmentDateTime;
   String? date;
@@ -81,10 +72,9 @@ class Data {
     final map = <String, dynamic>{};
     map['_id'] = id;
     map['petyID'] = petyID;
-    map['ownerID'] = ownerID;
-    map['firstName'] = firstName;
-    map['lastName'] = lastName;
-    map['phone'] = phone;
+    if (owner != null) {
+      map['owner'] = owner?.toJson();
+    }
     if (animals != null) {
       map['animals'] = animals?.map((v) => v.toJson()).toList();
     }
@@ -118,6 +108,62 @@ class Animals {
     map['pet'] = pet;
     map['count'] = count;
     map['_id'] = id;
+    return map;
+  }
+
+}
+
+class Owner {
+  Owner({
+      this.photo, 
+      this.id, 
+      this.firstName, 
+      this.lastName, 
+      this.phone,});
+
+  Owner.fromJson(dynamic json) {
+    photo = json['photo'] != null ? Photo.fromJson(json['photo']) : null;
+    id = json['_id'];
+    firstName = json['firstName'];
+    lastName = json['lastName'];
+    phone = json['phone'];
+  }
+  Photo? photo;
+  String? id;
+  String? firstName;
+  String? lastName;
+  String? phone;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    if (photo != null) {
+      map['photo'] = photo?.toJson();
+    }
+    map['_id'] = id;
+    map['firstName'] = firstName;
+    map['lastName'] = lastName;
+    map['phone'] = phone;
+    return map;
+  }
+
+}
+
+class Photo {
+  Photo({
+      this.url, 
+      this.publicId,});
+
+  Photo.fromJson(dynamic json) {
+    url = json['url'];
+    publicId = json['public_id'];
+  }
+  String? url;
+  String? publicId;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['url'] = url;
+    map['public_id'] = publicId;
     return map;
   }
 

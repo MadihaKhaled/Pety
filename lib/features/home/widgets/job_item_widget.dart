@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pety/layouts/pety_layout/cubit/pety_layout_cubit.dart';
 import 'package:pety/shared/extensions.dart';
+import 'package:pety/shared/network/remote/api_constants.dart';
 import 'package:pety/shared/routing/routes.dart';
 import 'package:pety/shared/styles/colors.dart';
 
@@ -30,7 +31,7 @@ class JobItemWidget extends StatelessWidget{
             ),
             child: InkWell(
                 onTap: (){
-                  context.pushNamed(Routes.searchForVet);
+                  context.pushNamed(Routes.searchForVet,arguments: getRole(model.title));
                 },
                 borderRadius: BorderRadius.circular(20),
                 splashColor: ColorManager.defaultColor,
@@ -42,6 +43,16 @@ class JobItemWidget extends StatelessWidget{
         Text(model.title)
       ],
     );
+  }
+
+  String getRole(String role){
+    if(role=='Pet groomer') {
+      return PetyRolesConstants.groomer;
+    } else if(role=='Pet sitter') {
+      return PetyRolesConstants.petSitter;
+    }else{
+      return PetyRolesConstants.vet;
+    }
   }
 
 }

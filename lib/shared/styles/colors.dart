@@ -8,6 +8,7 @@ class ColorManager{
   static const Color grey = Color(0xff585757);
   static const Color lightGrey = Color(0xff838383);
   static const Color lightGrey2 = Color(0xffCECECE);
+  static const Color lightGrey3 = Color(0xfff6f4f4);
   static const Color textFieldFillColor = Color(0xffF4F4F4);
   static const Color dashLineColor = Color(0xffD9D9D9);
   static const Color homeBackground = Color(0xffEDF5F6);

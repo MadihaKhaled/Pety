@@ -9,6 +9,10 @@ class DashboardStates<T> with _$DashboardStates<T>{
   const factory DashboardStates.loading() = Loading;
   const factory DashboardStates.success(T data) = Success<T>;
   const factory DashboardStates.error({required String error}) = Error;
-  const factory DashboardStates.loadGeneralData() = GeneralDataLoading;
-  const factory DashboardStates.successGeneralData() = GeneralDataSuccess;
+  const factory DashboardStates.loadAppointments() = AppointmentsLoading;
+  const factory DashboardStates.successAppointments(T data) = AppointmentsSuccess;
+  const factory DashboardStates.errorAppointments({required String error}) = AppointmentsError;
+  const factory DashboardStates.loadChangeAppointmentsStatus() = ChangeAppointmentsStatusLoading;
+  const factory DashboardStates.successChangeAppointmentsStatus(T data) = ChangeAppointmentsStatusSuccess;
+  const factory DashboardStates.errorChangeAppointmentsStatus({required String error}) = ChangeAppointmentsStatusError;
 }

@@ -30,7 +30,6 @@ class _DashboardLayoutState extends State<DashboardLayout>
 
   @override
   Widget build(BuildContext context) {
-    //final String role = (ModalRoute.of(context)!.settings.arguments as Map<String,dynamic>)['petRole'] ;
 
     return Scaffold(
       appBar: AppBar(
@@ -42,15 +41,14 @@ class _DashboardLayoutState extends State<DashboardLayout>
             Text('Work Hours'),
           ],
           onTap: (index) {
-            //context.read<DashboardCubit>().getPetyRoles();
           },
         ),
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
-            AppointmentsScreen(role: widget.role,),
-            WorkHoursScreen(role: widget.role,),
+        children: const [
+            AppointmentsScreen(),
+            WorkHoursScreen(),
         ]
      )
     );

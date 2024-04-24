@@ -37,6 +37,8 @@ class ApiErrors {
 
 class PetyRolesConstants{
   static const String vet = 'vet';
+  static const String groomer = 'groomer';
+  static const String petSitter = 'petSitter';
 }
 
 class AnimalsConstants{
