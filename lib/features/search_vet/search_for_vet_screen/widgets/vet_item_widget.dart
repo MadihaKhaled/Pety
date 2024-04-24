@@ -44,9 +44,9 @@ class VetItemWidget extends StatelessWidget{
                 ),
                 Row(
                   children: [
-                    DefaultRatingIndicator(rate: item.averageRate!.toDouble()),
+                    DefaultRatingIndicator(rate: item.ratingsAverage!.toDouble()),
                     const HorizontalSpace(width: 3),
-                    Text('${item.averageRate!}',style: TextStyles.font12LightGreyRegular),
+                    Text('${item.ratingsAverage!}',style: TextStyles.font12LightGreyRegular),
                   ],
                 ),
                 Row(

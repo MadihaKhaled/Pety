@@ -52,7 +52,7 @@ class TextStyles {
   );
 
   static TextStyle font12DefaultRegular = TextStyle(
-    color: ColorManager.defaultColor,
+    color: ColorManager.resetButtonColor,
     fontSize: 12.sp,
   );
 

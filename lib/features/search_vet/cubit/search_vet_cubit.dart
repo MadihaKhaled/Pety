@@ -20,6 +20,7 @@ class SearchVetCubit extends Cubit<SearchVetStates> {
 
   SearchVetCubit(this._searchVetRepository) : super( const SearchVetStates.initial());
 
+  String? currentRole;
   List<Data>? vets;
   bool addMore = true;
   bool offers = false;
@@ -40,8 +41,10 @@ class SearchVetCubit extends Cubit<SearchVetStates> {
 
   void getVets({
     int page = 1,
+    String? role,
   }) async{
     emit(const SearchVetStates.loading());
+    currentRole ??= role;
     if(page==1){
       vets = null;
       addMore=true;
@@ -56,7 +59,7 @@ class SearchVetCubit extends Cubit<SearchVetStates> {
       curAnimals = curAnimals.substring(0, curAnimals.length - 1);
     }
     final response = await _searchVetRepository.getVets(
-      role: PetyRolesConstants.vet,
+      role: currentRole!,
       sort: fromUpperToLower?'-$sort':sort,
       minPrice: minPrice,
       maxPrice: maxPrice,

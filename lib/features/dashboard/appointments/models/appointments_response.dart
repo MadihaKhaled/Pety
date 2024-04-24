@@ -15,7 +15,7 @@ class AppointmentsResponse {
     }
   }
   String? status;
-  num? results;
+  int? results;
   List<Data>? data;
 
   Map<String, dynamic> toJson() {
