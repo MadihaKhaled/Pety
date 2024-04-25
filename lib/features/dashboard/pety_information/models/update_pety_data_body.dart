@@ -17,11 +17,25 @@ class UpdatePetyDataBody{
   String? role;
   File? photo;
 
+  UpdatePetyDataBody({
+    this.petyName,
+    this.clinicalName,
+    this.address,
+    this.phoneNumber,
+    this.price,
+    this.animals,
+    this.description,
+    this.email,
+    this.offer,
+    this.coordinates,
+    this.role,
+    this.photo
+  });
+
   Future<FormData> toFormData() async{
     Map<String, dynamic> json = {};
     if(photo!=null){
       MultipartFile pic = await MultipartFile.fromFile(photo!.path, filename:photo!.path.split('/').last);
-      //json.putIfAbsent('photo', (){return pic;});
       json['photo']=pic;
     }
     if(petyName!=null)json['petyName']=petyName;

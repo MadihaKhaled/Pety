@@ -10,4 +10,6 @@ class SearchVetStates<T> with _$SearchVetStates<T> {
   const factory SearchVetStates.changeFilterValue() = ChangeFilterValue;
   const factory SearchVetStates.moveToNextScreen() = MoveToNextScreen;
   const factory SearchVetStates.moveToPrevScreen() = MoveToPrevScreen;
+  const factory SearchVetStates.loadUserData() = LoadingUserData;
+  const factory SearchVetStates.successUserData() = SuccessUserData;
 }

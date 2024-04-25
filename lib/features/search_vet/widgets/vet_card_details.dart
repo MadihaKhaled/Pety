@@ -22,13 +22,7 @@ class VetCardDetails extends StatelessWidget{
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
-            child: Image.network(
-              'https://qph.cf2.quoracdn.net/main-qimg-1a76949b7ad38ed534243bb32f6c4ea8-lq',
-              height: 100.h,
-              width: 80.w,
-              fit: BoxFit.cover,
-              //image: const NetworkImage(),
-            ),
+            child: vetImage(cubit.chosenVet!.photo?.url),
           ),
           const HorizontalSpace(width: 10),
           Expanded(
@@ -62,6 +56,25 @@ class VetCardDetails extends StatelessWidget{
           ),
         ],
       ),
+    );
+    
+  }
+
+  Widget vetImage(String? image){
+    if(image!=null){
+      return Image.network(
+        image,
+        height: 100.h,
+        width: 80.w,
+        fit: BoxFit.cover,
+        //image: const NetworkImage(),
+      );
+    }
+    return Image.asset(
+      'assets/images/default_vet_image.jpg',
+      height: 100.h,
+      width: 80.w,
+      fit: BoxFit.cover,
     );
   }
 

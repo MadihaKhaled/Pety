@@ -12,22 +12,18 @@ class AppointmentsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DashboardCubit cubit = context.read<DashboardCubit>();
     return BlocBuilder<DashboardCubit, DashboardStates>(
       builder: (context, state) {
-        if(state is AppointmentsLoading){
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }else if(state is AppointmentsError){
+        if(state is AppointmentsError){
           return Center(
               child: Text(state.error)
           );
-        }else if(state is AppointmentsSuccess && state.data.data.length==0){
+        }else if(cubit.appointmentsResponse!=null && cubit.appointmentsResponse!.data!.isEmpty){
           return const Center(
               child: Text('You have no appointments')
           );
-        }else {
-          DashboardCubit cubit = context.read<DashboardCubit>();
+        }else if(cubit.appointmentsResponse!=null) {
           return Padding(
             padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
             child: Column(
@@ -36,11 +32,15 @@ class AppointmentsScreen extends StatelessWidget {
                     child: ListView.separated(
                         itemBuilder: (context, index) => AppointmentItem(appointment:cubit.appointmentsResponse!.data![index]),
                         separatorBuilder: (context, index) => const VerticalSpace(height: 10),
-                        itemCount: cubit.appointmentsResponse!.results!
+                        itemCount: cubit.appointmentsResponse!.results!.toInt()
                     )
                 ),
               ],
             ),
+          );
+        }else{
+          return const Center(
+            child: CircularProgressIndicator(),
           );
         }
       },

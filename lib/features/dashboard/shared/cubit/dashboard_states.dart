@@ -15,4 +15,7 @@ class DashboardStates<T> with _$DashboardStates<T>{
   const factory DashboardStates.loadChangeAppointmentsStatus() = ChangeAppointmentsStatusLoading;
   const factory DashboardStates.successChangeAppointmentsStatus(T data) = ChangeAppointmentsStatusSuccess;
   const factory DashboardStates.errorChangeAppointmentsStatus({required String error}) = ChangeAppointmentsStatusError;
+  const factory DashboardStates.loadUpdatePetyInfo() = UpdatePetyInfoLoading;
+  const factory DashboardStates.successUpdatePetyInfo(T data) = UpdatePetyInfoSuccess;
+  const factory DashboardStates.errorUpdatePetyInfo({required String error}) = UpdatePetyInfoError;
 }

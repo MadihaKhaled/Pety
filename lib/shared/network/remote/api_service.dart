@@ -6,6 +6,7 @@ import 'package:pety/features/dashboard/appointments/models/appointment_status_b
 import 'package:pety/features/dashboard/appointments/models/appointment_status_response.dart';
 import 'package:pety/features/dashboard/appointments/models/appointments_body.dart';
 import 'package:pety/features/dashboard/appointments/models/appointments_response.dart';
+import 'package:pety/features/dashboard/pety_information/models/pety_information_body.dart';
 import 'package:pety/features/dashboard/pety_information/models/pety_information_response.dart';
 import 'package:pety/features/dashboard/pety_information/models/update_pety_data_response.dart';
 import 'package:pety/features/dashboard/shared/data/models/all_roles_response.dart';
@@ -15,7 +16,6 @@ import 'package:pety/features/dashboard/work_hours/models/work_hours_body.dart';
 import 'package:pety/features/dashboard/work_hours/models/work_hours_response.dart';
 import 'package:pety/features/login/data/models/login_request_body.dart';
 import 'package:pety/features/login/data/models/login_response.dart';
-import 'package:pety/features/profile/data/models/update_profile_body.dart';
 import 'package:pety/features/profile/data/models/update_profile_response.dart';
 import 'package:pety/features/register/data/models/register_request_body.dart';
 import 'package:pety/features/register/data/models/register_response.dart';
@@ -79,8 +79,9 @@ abstract class ApiService {
       @Header('Authorization') String token,
   );
 
-  @GET(ApiConstants.dashboardPetyInformation)
+  @POST(ApiConstants.dashboardPetyInformation)
   Future<PetyInformationResponse> petyInformation(
+      @Body() PetyInformationBody petyInformationBody,
       @Header('Authorization') String token,
   );
 

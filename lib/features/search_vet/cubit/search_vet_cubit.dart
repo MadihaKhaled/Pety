@@ -1,7 +1,9 @@
 
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:pety/features/profile/data/models/update_profile_response.dart';
 import 'package:pety/features/search_vet/book_vet_screen/data/models/book_vet_body.dart';
 import 'package:pety/features/search_vet/cubit/search_vet_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +11,8 @@ import 'package:pety/features/search_vet/data/models/animal_model.dart';
 import 'package:pety/features/search_vet/data/models/search_vets_response.dart';
 import 'package:pety/features/search_vet/data/repository/search_vet_repo.dart';
 import 'package:pety/shared/extensions.dart';
+import 'package:pety/shared/network/local/shared_pred_constants.dart';
+import 'package:pety/shared/network/local/shared_pref_helper.dart';
 import 'package:pety/shared/network/remote/api_constants.dart';
 import 'package:pety/shared/routing/routes.dart';
 
@@ -38,6 +42,7 @@ class SearchVetCubit extends Cubit<SearchVetStates> {
   Data? chosenVet;
   int clickedAppointment=-1;
   String? chosenTime;
+  String userName='';
 
   void getVets({
     int page = 1,
@@ -188,6 +193,13 @@ class SearchVetCubit extends Cubit<SearchVetStates> {
       clickedAppointment=index;
     }
     emit(const SearchVetStates.moveToPrevScreen());
+  }
+
+  void getUserData() async{
+    emit(const SearchVetStates.loadUserData());
+    User user = User.fromJson(jsonDecode(SharedPrefHelper.getData(key: SharedPrefConstants.userData)));
+    userName = '${user.firstName!} ${user.lastName!}';
+    emit(const SearchVetStates.successUserData());
   }
 
 }
