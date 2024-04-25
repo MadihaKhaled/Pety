@@ -255,15 +255,19 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<PetyInformationResponse> petyInformation(String token) async {
+  Future<PetyInformationResponse> petyInformation(
+    PetyInformationBody petyInformationBody,
+    String token,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
-    const Map<String, dynamic>? _data = null;
+    final _data = <String, dynamic>{};
+    _data.addAll(petyInformationBody.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<PetyInformationResponse>(Options(
-      method: 'GET',
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )

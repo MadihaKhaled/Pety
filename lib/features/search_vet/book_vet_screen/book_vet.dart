@@ -28,11 +28,8 @@ class BookVetScreen extends StatelessWidget{
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const VetCardDetails(),
-            const VerticalSpace(height: 20),
-            const Text('Ahmed'),
-            const VerticalSpace(height: 10),
-            const Text('0234'),
-            const VerticalSpace(height: 20),
+            const VerticalSpace(height: 40),
+            //Text(context.read<SearchVetCubit>().userName,style: TextStyles.font13BlackBold,),
             const FeesLocationCalendar(),
             const VerticalSpace(height: 20),
             Align(

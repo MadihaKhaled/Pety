@@ -15,7 +15,7 @@ class AppointmentsResponse {
     }
   }
   String? status;
-  int? results;
+  num? results;
   List<Data>? data;
 
   Map<String, dynamic> toJson() {
@@ -45,11 +45,16 @@ class Data {
   Data.fromJson(dynamic json) {
     id = json['_id'];
     petyID = json['petyID'];
-    owner = json['owner'] != null ? Owner.fromJson(json['owner']) : null;
+    if (json['owner'] != null) {
+      owner = [];
+      json['owner'].forEach((v) {
+        owner?.add(Owner.fromJson(v));
+      });
+    }
     if (json['animals'] != null) {
       animals = [];
       json['animals'].forEach((v) {
-        animals?.add(Animals.fromJson(v));
+        animals?.add(AnimalObject.fromJson(v));
       });
     }
     appointmentDateTime = json['appointmentDateTime'];
@@ -60,8 +65,8 @@ class Data {
   }
   String? id;
   String? petyID;
-  Owner? owner;
-  List<Animals>? animals;
+  List<Owner>? owner;
+  List<AnimalObject>? animals;
   String? appointmentDateTime;
   String? date;
   String? time;
@@ -73,7 +78,7 @@ class Data {
     map['_id'] = id;
     map['petyID'] = petyID;
     if (owner != null) {
-      map['owner'] = owner?.toJson();
+      map['owner'] = owner?.map((v) => v.toJson()).toList();
     }
     if (animals != null) {
       map['animals'] = animals?.map((v) => v.toJson()).toList();
@@ -88,20 +93,21 @@ class Data {
 
 }
 
-class Animals {
-  Animals({
-      this.pet, 
-      this.count, 
-      this.id,});
-
-  Animals.fromJson(dynamic json) {
-    pet = json['pet'];
-    count = json['count'];
-    id = json['_id'];
-  }
+class AnimalObject{
   String? pet;
-  num? count;
+  int? count;
   String? id;
+  AnimalObject({
+    this.pet,
+    this.count,
+    this.id
+  });
+
+  AnimalObject.fromJson(dynamic json){
+    pet=json['pet'];
+    count=json['count'];
+    id=json['_id'];
+  }
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -115,34 +121,46 @@ class Animals {
 
 class Owner {
   Owner({
-      this.photo, 
       this.id, 
       this.firstName, 
       this.lastName, 
-      this.phone,});
+      this.email, 
+      this.password, 
+      this.phone, 
+      this.v, 
+      this.photo,});
 
   Owner.fromJson(dynamic json) {
-    photo = json['photo'] != null ? Photo.fromJson(json['photo']) : null;
     id = json['_id'];
     firstName = json['firstName'];
     lastName = json['lastName'];
+    email = json['email'];
+    password = json['password'];
     phone = json['phone'];
+    v = json['__v'];
+    photo = json['photo'] != null ? Photo.fromJson(json['photo']) : null;
   }
-  Photo? photo;
   String? id;
   String? firstName;
   String? lastName;
+  String? email;
+  String? password;
   String? phone;
+  num? v;
+  Photo? photo;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    if (photo != null) {
-      map['photo'] = photo?.toJson();
-    }
     map['_id'] = id;
     map['firstName'] = firstName;
     map['lastName'] = lastName;
+    map['email'] = email;
+    map['password'] = password;
     map['phone'] = phone;
+    map['__v'] = v;
+    if (photo != null) {
+      map['photo'] = photo?.toJson();
+    }
     return map;
   }
 

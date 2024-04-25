@@ -6,6 +6,7 @@ import 'package:pety/features/dashboard/appointments/models/appointment_status_b
 import 'package:pety/features/dashboard/appointments/models/appointment_status_response.dart';
 import 'package:pety/features/dashboard/appointments/models/appointments_body.dart';
 import 'package:pety/features/dashboard/appointments/models/appointments_response.dart';
+import 'package:pety/features/dashboard/pety_information/models/pety_information_body.dart';
 import 'package:pety/features/dashboard/pety_information/models/pety_information_response.dart';
 import 'package:pety/features/dashboard/pety_information/models/update_pety_data_response.dart';
 import 'package:pety/features/dashboard/shared/data/models/all_roles_response.dart';
@@ -27,6 +28,7 @@ class DashboardRepository {
     this._apiService,
   );
 
+  /// appointments
   Future<ApiResult<AppointmentsResponse>> getAllAppointments({required AppointmentsBody appointmentsBody}) async{
     try{
       final AppointmentsResponse response = await _apiService.getAppointmentsDashboard(
@@ -56,9 +58,11 @@ class DashboardRepository {
     }
   }
 
-  Future<ApiResult<PetyInformationResponse>> getPetyInformation() async{
+  /// pety info
+  Future<ApiResult<PetyInformationResponse>> getPetyInformation({required PetyInformationBody petyInformationBody}) async{
     try{
       final PetyInformationResponse response = await _apiService.petyInformation(
+          petyInformationBody,
           'Bearer ${SharedPrefHelper.getData(key: SharedPrefConstants.tokenKey)}'
       );
       return ApiResult.success(response);
@@ -79,6 +83,7 @@ class DashboardRepository {
     }
   }
 
+  /// work hours
   Future<ApiResult<WorkHoursResponse>> addWorkHours({required WorkHoursBody workHoursBody}) async{
     try{
       final WorkHoursResponse response = await _apiService.addWorkHours(
@@ -103,7 +108,7 @@ class DashboardRepository {
     }
   }
 
-
+  /// get pety roles
   Future<ApiResult<AllRolesResponse>> getAllRoles() async{
     try{
       final AllRolesResponse response = await _apiService.getPetyRoles(
@@ -115,6 +120,7 @@ class DashboardRepository {
     }
   }
 
+  /// non api function
   String formatDate(String date){
     DateTime dateTime = DateFormat("dd-MM-yyyy").parse(date);
     return DateFormat("EEE MMMM d, yyyy").format(dateTime);

@@ -27,9 +27,9 @@ class VetItemWidget extends StatelessWidget{
       borderRadius: BorderRadius.circular(35),
       child: Row(
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             radius: 35,
-             backgroundImage: NetworkImage('https://qph.cf2.quoracdn.net/main-qimg-1a76949b7ad38ed534243bb32f6c4ea8-lq'),
+             backgroundImage: vetImage(item.photo?.url),
           ),
           SizedBox(width: 8.w,),
           Expanded(
@@ -86,5 +86,11 @@ class VetItemWidget extends StatelessWidget{
     );
   }
 
+  ImageProvider vetImage(String? image){
+    if(image!=null){
+      return NetworkImage(image);
+    }
+    return const AssetImage('assets/images/default_vet_image.jpg');
+  }
 
 }

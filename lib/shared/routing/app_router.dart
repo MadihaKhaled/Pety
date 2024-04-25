@@ -52,7 +52,8 @@ class AppRouter {
               BlocProvider(
                 create: (context) =>
                 getIt<SearchVetCubit>()
-                  ..getVets(role: role),
+                ..getVets(role: role),
+                //..getUserData(),
                 child: const SearchForVet(),
               ),
         );
@@ -89,7 +90,9 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) =>
               BlocProvider.value(
-                  value: BlocProvider.of<DashboardCubit>(cubitContext)..getAllAppointments(role),
+                  value: BlocProvider.of<DashboardCubit>(cubitContext)
+                    ..getAllAppointments(role)
+                    ..getPetyInfo(role),
                   child: DashboardLayout(role: role,)
               ),
         );

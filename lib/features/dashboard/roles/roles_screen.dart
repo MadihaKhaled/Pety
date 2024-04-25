@@ -6,6 +6,7 @@ import 'package:pety/features/dashboard/shared/cubit/dashobard_cubit.dart';
 import 'package:pety/shared/extensions.dart';
 import 'package:pety/shared/routing/routes.dart';
 import 'package:pety/shared/styles/colors.dart';
+import 'package:pety/shared/widgets/default_back_app_bar.dart';
 import 'package:pety/shared/widgets/vertical_space.dart';
 
 class RolesScreen extends StatelessWidget {
@@ -14,7 +15,9 @@ class RolesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: DefaultBackAppBar(context: context,),
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 8.w),
         child: BlocBuilder<DashboardCubit, DashboardStates>(

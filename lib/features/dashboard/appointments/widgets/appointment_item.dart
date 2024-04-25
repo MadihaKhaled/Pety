@@ -19,7 +19,7 @@ class AppointmentItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
-      height: 100.h,
+      height: 120.h,
       decoration: BoxDecoration(
           color: ColorManager.lightGrey3,
           borderRadius: BorderRadius.circular(10)
@@ -31,7 +31,7 @@ class AppointmentItem extends StatelessWidget {
             child: SizedBox.fromSize(
               size: const Size.fromRadius(40), // Image radius
               child: Image.network(
-                appointment.owner!.photo!.url!,
+                appointment.owner![0].photo!.url!,
                 fit: BoxFit.cover
               ),
             ),
@@ -41,7 +41,7 @@ class AppointmentItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "${appointment.owner!.firstName!} ${appointment.owner!.lastName!}",
+                "${appointment.owner![0].firstName!} ${appointment.owner![0].lastName!}",
                 style: TextStyles.font12BlackMedium,
                 overflow: TextOverflow.ellipsis,
               ),
