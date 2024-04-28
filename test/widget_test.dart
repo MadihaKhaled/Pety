@@ -17,7 +17,7 @@ void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(PetyApp(
-      appRouter: AppRouter(),
+      appRouter: AppRouter(), initialRoute: '',
     ));
 
     // Verify that our counter starts at 0.
