@@ -55,7 +55,10 @@ dependencies:
   fluttertoast: ^8.2.4
   image_picker: ^1.0.8
   numberpicker: ^2.1.2
+<<<<<<< HEAD
   dotted_border: ^2.0.0+1
+=======
+>>>>>>> 6e6e1049c7f9ebc0f58a97d7b3e06c10cc91d979
 
 
 dev_dependencies:
